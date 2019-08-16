@@ -1,10 +1,16 @@
 package dev.progbloom;
 
 /**
- * Generic interface for the all algorithms.
+ * Generic interface for the all sorting algorithms.
  *
  * @param <T> input and result data type
  */
 public interface AlgorithmSort<T extends Comparable> {
-    T[] sort(T[] data);
+    /**
+     * Sorts an array.
+     *
+     * @param a array to sort
+     * @return sorted array
+     */
+    T[] sort(T[] a);
 }

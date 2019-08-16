@@ -7,11 +7,11 @@ import static dev.progbloom.sort.SortUtility.swap;
 /**
  * Insertion sort algorithm.
  * Link: {@code https://progbloom.dev/posts/19}
- *
- * @author blinky
  */
 public class Insertion implements AlgorithmSort<Integer> {
     /**
+     * Sorts an array.
+     * <p>
      * This realization moves elements to the right and then inserts the key into the sorted sequence.
      * It's slightly faster than swapping elements.
      *
@@ -35,6 +35,8 @@ public class Insertion implements AlgorithmSort<Integer> {
     }
 
     /**
+     * Sorts an array.
+     * <p>
      * This realization uses swapping to insert the key into the sorted sequence.
      *
      * @param a array to sort
