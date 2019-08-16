@@ -11,6 +11,13 @@ import static dev.progbloom.sort.SortUtility.swap;
  * @author blinky
  */
 public class Insertion implements AlgorithmSort<Integer> {
+    /**
+     * This realization moves elements to the right and then inserts the key into the sorted sequence.
+     * It's slightly faster than swapping elements.
+     *
+     * @param a array to sort
+     * @return sorted array
+     */
     @Override
     public Integer[] sort(Integer[] a) {
         int len = a.length;
@@ -28,11 +35,9 @@ public class Insertion implements AlgorithmSort<Integer> {
     }
 
     /**
-     * Not such efficient as above realization.
-     * <p>
-     * This realization uses swapping, bot not moves elements to the right.
+     * This realization uses swapping to insert the key into the sorted sequence.
      *
-     * @param a input array to sort
+     * @param a array to sort
      * @return sorted array
      */
     public Integer[] sortWithSwapping(Integer[] a) {
