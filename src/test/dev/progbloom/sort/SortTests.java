@@ -1,6 +1,5 @@
 package dev.progbloom.sort;
 
-import dev.progbloom.AlgorithmSort;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -14,7 +13,8 @@ class SortTests {
     static Stream<Arguments> provideSortingAlgorithms() {
         return Stream.of(
                 Arguments.of(new Insertion()),
-                Arguments.of(new Selection())
+                Arguments.of(new Selection()),
+                Arguments.of(new Merge())
         );
     }
 

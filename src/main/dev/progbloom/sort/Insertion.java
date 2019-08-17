@@ -1,7 +1,5 @@
 package dev.progbloom.sort;
 
-import dev.progbloom.AlgorithmSort;
-
 import static dev.progbloom.sort.SortUtility.swap;
 
 /**

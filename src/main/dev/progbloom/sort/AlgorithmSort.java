@@ -1,7 +1,7 @@
-package dev.progbloom;
+package dev.progbloom.sort;
 
 /**
- * Generic interface for the all sorting algorithms.
+ * Generic interface for all the sorting algorithms.
  *
  * @param <T> input and result data type
  */
