@@ -1,9 +1,13 @@
 package dev.progbloom.search;
 
 /**
- * Find max sum subarray Divide and Conquer algorithm.
+ * Find max sum subarray algorithm.
+ * Link: {@code https://progbloom.dev/posts/23}
+ *
+ * <b>Algorithmic paradigm:</b> Divide and Conquer.
  */
 public class MaxSubarrayDivideAndConquer implements AlgorithmMaxSubarray {
+
     private MaxSubarrayResult findMaxCrossingSubarray(final int[] a, final int low, final int mid, final int high) {
         int sum;
         int left, right;

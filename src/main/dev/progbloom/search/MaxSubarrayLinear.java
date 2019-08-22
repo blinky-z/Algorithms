@@ -2,6 +2,9 @@ package dev.progbloom.search;
 
 /**
  * Find max sum subarray efficient algorithm.
+ * Link: {@code https://progbloom.dev/posts/23}
+ *
+ * <b>Algorithmic paradigm:</b> Dynamic programming.
  */
 public class MaxSubarrayLinear implements AlgorithmMaxSubarray {
 
