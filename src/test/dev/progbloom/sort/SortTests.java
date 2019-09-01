@@ -14,7 +14,8 @@ class SortTests {
         return Stream.of(
                 Arguments.of(new Insertion()),
                 Arguments.of(new Selection()),
-                Arguments.of(new Merge())
+                Arguments.of(new Merge()),
+                Arguments.of(new HeapSort())
         );
     }
 

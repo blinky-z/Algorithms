@@ -1,6 +1,6 @@
 package dev.progbloom.sort;
 
-import static dev.progbloom.sort.SortUtility.swap;
+import static dev.progbloom.Utils.swap;
 
 /**
  * Insertion sort algorithm.

@@ -1,12 +1,13 @@
 package dev.progbloom;
 
-import dev.progbloom.sort.Merge;
-
-import java.util.Arrays;
+import dev.progbloom.search.MaxSubarrayDivideAndConquer;
+import dev.progbloom.search.MaxSubarrayResult;
 
 public class Main {
     public static void main(String[] args) {
-        Merge merge = new Merge();
-        System.out.println(Arrays.toString(merge.sort(new Integer[]{6, 5, 1, 3, 4, 2})));
+        MaxSubarrayDivideAndConquer maxSubarrayDivideAndConquer = new MaxSubarrayDivideAndConquer();
+        MaxSubarrayResult res = maxSubarrayDivideAndConquer.findMaxSubarray(new int[]{-25, 20, -16, -23, 18, 20, -7, 12, -5, -22}, 0, 9);
+
+        System.out.println("res = " + res);
     }
 }
