@@ -16,7 +16,10 @@ class SortTests {
                 Arguments.of(new Selection()),
                 Arguments.of(new Merge()),
                 Arguments.of(new HeapSort()),
-                Arguments.of(new QuickSort())
+                Arguments.of(new QuickSort()),
+                Arguments.of(new CountingSort()),
+                Arguments.of(new RadixSort())
+
         );
     }
 
@@ -40,7 +43,7 @@ class SortTests {
         int tryCount = 10;
         int initDataLen = 100;
         for (int currentTry = 0; currentTry < tryCount; currentTry++) {
-            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen);
+            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen, 1000);
 
             Integer[] sortedArray = Arrays.copyOf(unsortedArray, initDataLen);
             Arrays.sort(sortedArray);
@@ -57,7 +60,7 @@ class SortTests {
         int tryCount = 10;
         int initDataLen = 100;
         for (int currentTry = 0; currentTry < tryCount; currentTry++) {
-            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen);
+            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen, 1000);
 
             Integer[] sortedArray = Arrays.copyOf(unsortedArray, initDataLen);
             Arrays.sort(sortedArray);
