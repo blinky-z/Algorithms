@@ -1,7 +1,5 @@
 package dev.progbloom.datastruct;
 
-import java.util.Stack;
-
 /**
  * Abstract data type for grouping elements.
  */
