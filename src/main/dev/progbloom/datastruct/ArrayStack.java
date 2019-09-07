@@ -1,8 +1,11 @@
 package dev.progbloom.datastruct;
 
 import java.util.EmptyStackException;
-import java.util.Queue;
 
+/**
+ * Stack implementation using an array.
+ * Link: {@code https://progbloom.dev/posts/27}
+ */
 public class ArrayStack implements Stack<Integer> {
     private Integer[] a;
 
