@@ -52,7 +52,7 @@ public class BinaryHeap {
      * Increases key of the node with index {@code i}.
      *
      * @param i      node
-     * @param newKey new key such that newKey > oldKey
+     * @param newKey new key such that newKey >= oldKey
      * @throws IllegalStateException if new key is lower that old key
      */
     public void increaseKey(int i, int newKey) throws IllegalStateException {
