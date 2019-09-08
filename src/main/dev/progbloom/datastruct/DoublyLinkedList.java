@@ -1,12 +1,14 @@
 package dev.progbloom.datastruct;
 
+import org.jetbrains.annotations.Nullable;
+
 import java.util.Objects;
 
 /**
- * Singly linked list implementation.
+ * Doubly linked list implementation.
  * Link: {@code https://progbloom.dev/posts/28}
  */
-public class DoublyLinkedList<E> implements Collection<E> {
+public class DoublyLinkedList<E> {
     private Node<E> head;
     private Node<E> tail;
     private int size;
@@ -16,7 +18,6 @@ public class DoublyLinkedList<E> implements Collection<E> {
      *
      * @return the number of elements in this collection
      */
-    @Override
     public int size() {
         return size;
     }
@@ -26,7 +27,6 @@ public class DoublyLinkedList<E> implements Collection<E> {
      *
      * @return {@code true} if this collection contains no elements
      */
-    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -41,7 +41,6 @@ public class DoublyLinkedList<E> implements Collection<E> {
      * @return {@code true} if this collection contains the specified
      * element
      */
-    @Override
     public boolean contains(Object o) {
         Node<E> curNode = this.head;
         while (curNode != null) {
@@ -74,21 +73,20 @@ public class DoublyLinkedList<E> implements Collection<E> {
      * Appends the specified element to the end of this list.
      *
      * @param e element to be appended to this list
-     * @return {@code true} as the collection always changes
+     * @return inserted node
      */
-    @Override
-    public boolean add(E e) {
+    public Node<E> add(E e) {
         Node<E> node = new Node<>(e);
         Node<E> tail = this.tail;
         if (tail != null) {
             tail.next = node;
             node.prev = tail;
+            this.tail = node;
         } else {
-            tail = node;
+            this.head = this.tail = node;
         }
-        this.tail = tail;
         size++;
-        return true;
+        return node;
     }
 
     /**
@@ -96,26 +94,27 @@ public class DoublyLinkedList<E> implements Collection<E> {
      *
      * @param node node before which new element should be inserted
      * @param e    element to be inserted
-     * @return {@code true} as the collection always changes
+     * @return inserted node
      */
-    public boolean addBefore(Node<E> node, E e) {
+    public Node<E> addBefore(Node<E> node, E e) {
         Node<E> newNode = new Node<>(e);
         newNode.prev = node.prev;
         newNode.next = node;
+        if (node.prev == null) {
+            this.head = newNode;
+        }
         node.prev = newNode;
         size++;
-        return true;
+        return newNode;
     }
 
     /**
      * Removes this node from the linked list.
      *
-     * @param o element to be removed from this collection
-     * @return {@code true} as it always changes the collection
+     * @param node element to be removed from this collection
+     * @return {@code true}
      */
-    @Override
-    public boolean remove(Object o) {
-        Node node = (Node) o;
+    public boolean remove(Node<E> node) {
         if (node.prev != null) {
             node.prev.next = node.next;
         } else {
@@ -128,6 +127,62 @@ public class DoublyLinkedList<E> implements Collection<E> {
         }
         size--;
         return true;
+    }
+
+    /**
+     * Removes and returns first node of this list (head).
+     * May be {@code null} if the list is empty.
+     *
+     * @return first node of this list if exists, {@code null} otherwise
+     */
+    @Nullable
+    public Node<E> removeFirst() {
+        Node<E> head = this.head;
+
+        // empty list, return null
+        if (head == null) {
+            return null;
+        }
+
+        // single element list such that head==tail, return head
+        if (head == tail) {
+            this.head = this.tail = null;
+            return head;
+        }
+
+        // replace head with successor
+        Node<E> headSucc = head.next;
+        headSucc.prev = null;
+        this.head = headSucc;
+        return head;
+    }
+
+    /**
+     * Removes and returns last node of this list (tail).
+     * May be {@code null} if the list is empty.
+     *
+     * @return last node of this list if exists, {@code null} otherwise
+     */
+    @Nullable
+    public Node<E> removeLast() {
+        Node<E> tail = this.tail;
+
+        // empty list, return null
+        if (tail == null) {
+            return null;
+        }
+
+        // single element list such that tail==head, return tail
+        if (tail == this.head) {
+            this.head = this.tail = null;
+            return tail;
+        }
+
+        // replace tail with predecessor
+        Node<E> tailPred = tail.prev;
+        tailPred.next = null;
+        this.tail = tailPred;
+        return tail;
     }
 
     /**
@@ -148,12 +203,19 @@ public class DoublyLinkedList<E> implements Collection<E> {
     }
 
     public static class Node<E> {
-        final E key;
+        E key;
         Node<E> prev, next;
 
         Node(E key) {
             this.key = key;
             prev = next = null;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "key=" + key +
+                    '}';
         }
     }
 
