@@ -1,11 +1,14 @@
 package dev.progbloom.datastruct;
 
-import dev.progbloom.Utils;
+import java.util.NoSuchElementException;
+
+import static dev.progbloom.Utils.swap;
 
 /**
  * Binary heap data structure implementation.
  * <p>
- * To construct max binary heap, call function {@link #buildMaxHeap()} explicitly.
+ * To construct max binary heap from passed array, call function {@link #buildMaxHeap()} explicitly.
+ * Standard internal array size is 64.
  * <p>
  * Link: {@code https://progbloom.dev/posts/25}
  */
@@ -13,6 +16,11 @@ public class BinaryHeap {
     private Integer[] a;
 
     private int heapSize;
+
+    public BinaryHeap() {
+        this.a = new Integer[64];
+        heapSize = 0;
+    }
 
     public BinaryHeap(Integer[] a) {
         this.a = a;
@@ -29,6 +37,44 @@ public class BinaryHeap {
 
     private int right(int i) {
         return 2 * i + 2;
+    }
+
+    public void add(Integer e) throws IllegalStateException {
+        if (heapSize == a.length) {
+            throw new IllegalStateException("Heap is full");
+        }
+        a[heapSize] = Integer.MIN_VALUE;
+        increaseKey(heapSize, e);
+        heapSize++;
+    }
+
+    /**
+     * Increases key of the node with index {@code i}.
+     *
+     * @param i      node
+     * @param newKey new key such that newKey > oldKey
+     * @throws IllegalStateException if new key is lower that old key
+     */
+    public void increaseKey(int i, int newKey) throws IllegalStateException {
+        if (newKey < a[i]) {
+            throw new IllegalStateException("New key is lower than old key");
+        }
+        a[i] = newKey;
+        while (i > 0 && a[parent(i)] < a[i]) {
+            swap(a, parent(i), i);
+            i = parent(i);
+        }
+    }
+
+    public int extractMax() throws NoSuchElementException {
+        if (heapSize == 0) {
+            throw new NoSuchElementException("Heap is empty");
+        }
+        int max = a[0];
+        a[0] = a[heapSize - 1];
+        heapSize--;
+        maxHeapify(0);
+        return max;
     }
 
     /**
@@ -54,7 +100,7 @@ public class BinaryHeap {
         }
 
         if (largest != i) {
-            Utils.swap(a, i, largest);
+            swap(a, i, largest);
             maxHeapify(largest);
         }
     }
@@ -69,7 +115,7 @@ public class BinaryHeap {
     public Integer[] heapsort() {
         buildMaxHeap();
         while (heapSize >= 1) {
-            Utils.swap(a, 0, heapSize);
+            swap(a, 0, heapSize);
             heapSize--;
             maxHeapify(0);
         }
@@ -78,5 +124,9 @@ public class BinaryHeap {
 
     public Integer[] getArray() {
         return a;
+    }
+
+    public boolean isEmpty() {
+        return heapSize == 0;
     }
 }

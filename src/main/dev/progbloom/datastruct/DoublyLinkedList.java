@@ -1,7 +1,5 @@
 package dev.progbloom.datastruct;
 
-import org.jetbrains.annotations.Nullable;
-
 import java.util.Objects;
 
 /**
@@ -135,7 +133,6 @@ public class DoublyLinkedList<E> {
      *
      * @return first node of this list if exists, {@code null} otherwise
      */
-    @Nullable
     public Node<E> removeFirst() {
         Node<E> head = this.head;
 
@@ -163,7 +160,6 @@ public class DoublyLinkedList<E> {
      *
      * @return last node of this list if exists, {@code null} otherwise
      */
-    @Nullable
     public Node<E> removeLast() {
         Node<E> tail = this.tail;
 
