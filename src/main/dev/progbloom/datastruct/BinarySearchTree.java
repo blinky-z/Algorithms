@@ -1,6 +1,11 @@
 package dev.progbloom.datastruct;
 
 
+/**
+ * Binary search tree (BST) implementation.
+ * <p>
+ * Link: {@code https://progbloom.dev/posts/30}
+ */
 public class BinarySearchTree {
     private TreeNode root;
 
