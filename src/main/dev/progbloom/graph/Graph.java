@@ -10,6 +10,8 @@ import java.util.List;
  * <p>
  * Graph stored as Adjacency List. Adjacency list represented as {@code List<LIst<Integer>>}
  * so adding element takes {@code O(1)} time, but be aware of duplicate vertexes.
+ * <p>
+ * Last vertex index is V - 1, first vertex index is 0.
  */
 public class Graph {
     private int V;
@@ -19,7 +21,7 @@ public class Graph {
     /**
      * Adjacency list.
      * <p>
-     * Last vertex index is V - 1, first vertex index is 0, so the capacity of this list is V.
+     * As last vertex index is V - 1, first vertex index is 0, so the capacity of this list is V.
      */
     private List<List<Integer>> adj;
 
