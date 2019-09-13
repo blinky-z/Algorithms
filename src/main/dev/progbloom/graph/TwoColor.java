@@ -1,7 +1,7 @@
 package dev.progbloom.graph;
 
 /**
- * Check if graph is two colorable (bipartite).
+ * Check if undirected graph is two colorable (bipartite).
  */
 public class TwoColor {
     private boolean[] marked;
