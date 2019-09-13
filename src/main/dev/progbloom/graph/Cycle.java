@@ -28,7 +28,7 @@ public class Cycle {
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 dfs(G, w, v);
-            } else if (w != u) { // check if w is prev vertex, if so, it's not a cycle, otherwise cycle found
+            } else if (w != u) { // check if w is prev vertex
                 hasCycle = true;
             }
         }
