@@ -6,7 +6,7 @@ import static dev.progbloom.Utils.swap;
  * Selection sort algorithm.
  * Link: {@code https://progbloom.dev/posts/20}
  */
-public class Selection implements AlgorithmSort<Integer> {
+public class SelectionSort implements AlgorithmSort<Integer> {
     /**
      * Sorts an array.
      *

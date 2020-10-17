@@ -6,7 +6,7 @@ package dev.progbloom.sort;
  *
  * <b>Algorithmic paradigm:</b> Divide and Conquer.
  */
-public class Merge implements AlgorithmSort<Integer> {
+public class MergeSort implements AlgorithmSort<Integer> {
     private void merge(Integer[] a, final int p, final int q, final int r) {
         int n1 = q - p + 1;
         int n2 = r - q;

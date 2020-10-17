@@ -65,7 +65,8 @@ public class CountingSort implements AlgorithmSort<Integer> {
 
         int elem;
         for (int j = 0; j < a.length; j++) {
-            c[(a[j] / exp) % 10]++;
+            elem = a[j];
+            c[(elem / exp) % 10]++;
         }
 
         for (int i = 1; i < 10; i++) {
@@ -74,8 +75,9 @@ public class CountingSort implements AlgorithmSort<Integer> {
 
         Integer[] b = new Integer[a.length];
         for (int j = a.length - 1; j >= 0; j--) {
-            b[c[(a[j] / exp) % 10] - 1] = a[j];
-            c[(a[j] / exp) % 10]--;
+            elem = a[j];
+            b[c[(elem / exp) % 10] - 1] = elem;
+            c[(elem / exp) % 10]--;
         }
 
         System.arraycopy(b, 0, a, 0, a.length);

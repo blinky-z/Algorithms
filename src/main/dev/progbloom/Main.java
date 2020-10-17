@@ -1,13 +1,22 @@
 package dev.progbloom;
 
-import dev.progbloom.search.MaxSubarrayDivideAndConquer;
-import dev.progbloom.search.MaxSubarrayResult;
+
+import dev.progbloom.sort.QuickSort;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        MaxSubarrayDivideAndConquer maxSubarrayDivideAndConquer = new MaxSubarrayDivideAndConquer();
-        MaxSubarrayResult res = maxSubarrayDivideAndConquer.findMaxSubarray(new int[]{-25, 20, -16, -23, 18, 20, -7, 12, -5, -22}, 0, 9);
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        in.nextInt();
+        Integer[] a = new Integer[n];
 
-        System.out.println("res = " + res);
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        }
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(a);
     }
 }

@@ -12,9 +12,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class SortTests {
     static Stream<Arguments> provideSortingAlgorithms() {
         return Stream.of(
-                Arguments.of(new Insertion()),
-                Arguments.of(new Selection()),
-                Arguments.of(new Merge()),
+                Arguments.of(new InsertionSort()),
+                Arguments.of(new SelectionSort()),
+                Arguments.of(new MergeSort()),
                 Arguments.of(new HeapSort()),
                 Arguments.of(new QuickSort()),
                 Arguments.of(new CountingSort()),

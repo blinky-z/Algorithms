@@ -7,7 +7,7 @@ import static dev.progbloom.Utils.swap;
  * Link: {@code https://progbloom.dev/posts/26}
  */
 public class QuickSort implements AlgorithmSort<Integer> {
-    private int partition(Integer[] a, int p, int r) {
+    private int partition_lomuto(Integer[] a, int p, int r) {
         int x = a[r];
         int i = p - 1;
         for (int j = p; j < r; j++) {
@@ -22,7 +22,7 @@ public class QuickSort implements AlgorithmSort<Integer> {
 
     private void quicksort(Integer[] a, int p, int r) {
         if (p < r) {
-            int q = partition(a, p, r);
+            int q = partition_lomuto(a, p, r);
             quicksort(a, p, q - 1);
             quicksort(a, q + 1, r);
         }
