@@ -4,6 +4,7 @@ package dev.progbloom.datastruct;
  * Tree node representation.
  */
 public class TreeNode {
+
     int key;
 
     TreeNode left;
@@ -19,7 +20,7 @@ public class TreeNode {
     @Override
     public String toString() {
         return "TreeNode{" +
-                "key=" + key +
-                '}';
+            "key=" + key +
+            '}';
     }
 }

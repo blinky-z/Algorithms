@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Queue implementation using a circular buffer.
- * Link: {@code https://progbloom.dev/posts/27}
  */
 public class ArrayQueue implements Queue<Integer> {
     private Integer[] q;

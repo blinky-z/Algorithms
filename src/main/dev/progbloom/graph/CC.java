@@ -4,6 +4,7 @@ package dev.progbloom.graph;
  * Finds connected components in undirected graph. Also assigns component ID to every vertex.
  */
 public class CC {
+
     private boolean[] marked;
     private int[] id;
     private int count;

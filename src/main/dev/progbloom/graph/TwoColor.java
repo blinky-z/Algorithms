@@ -4,6 +4,7 @@ package dev.progbloom.graph;
  * Check if undirected graph is two colorable (bipartite).
  */
 public class TwoColor {
+
     private boolean[] marked;
     private boolean[] color;
     private boolean isTwoColorable = true;

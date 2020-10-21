@@ -8,6 +8,7 @@ import static dev.progbloom.Utils.maxInArray;
  * Sort is stable.
  */
 public class CountingSort implements AlgorithmSort<Integer> {
+
     /**
      * Sorts an array.
      *

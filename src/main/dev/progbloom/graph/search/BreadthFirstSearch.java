@@ -9,6 +9,7 @@ import java.util.Queue;
  * Breadth first search algorithm.
  */
 public class BreadthFirstSearch {
+    
     private boolean[] marked;
     private int count;
 

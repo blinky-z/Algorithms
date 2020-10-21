@@ -4,7 +4,6 @@ import java.util.EmptyStackException;
 
 /**
  * Stack implementation using an array.
- * Link: {@code https://progbloom.dev/posts/27}
  */
 public class ArrayStack implements Stack<Integer> {
     private Integer[] a;

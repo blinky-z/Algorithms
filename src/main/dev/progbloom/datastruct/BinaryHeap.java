@@ -9,8 +9,6 @@ import static dev.progbloom.Utils.swap;
  * <p>
  * To construct max binary heap from passed array, call function {@link #buildMaxHeap()} explicitly.
  * Standard empty internal array size is 64.
- * <p>
- * Link: {@code https://progbloom.dev/posts/25}
  */
 public class BinaryHeap {
     private Integer[] a;

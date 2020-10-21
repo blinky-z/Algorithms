@@ -7,10 +7,9 @@ import java.util.NoSuchElementException;
  * <p>
  * Each element is just a key, so element's priority is equal to the key.
  * Queue supports adding up to 64 elements.
- * <p>
- * Link: {@code https://progbloom.dev/posts/27}
  */
 public class PriorityQueue implements Queue<Integer> {
+
     private BinaryHeap heap;
 
     private static final int queueSize = 64;

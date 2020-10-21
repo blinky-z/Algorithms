@@ -2,11 +2,11 @@ package dev.progbloom.sort;
 
 /**
  * Merge sort algorithm.
- * Link: {@code https://progbloom.dev/posts/21}
  *
  * <b>Algorithmic paradigm:</b> Divide and Conquer.
  */
 public class MergeSort implements AlgorithmSort<Integer> {
+
     private void merge(Integer[] a, final int p, final int q, final int r) {
         int n1 = q - p + 1;
         int n2 = r - q;

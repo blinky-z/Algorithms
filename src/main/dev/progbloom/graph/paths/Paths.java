@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
  * @implNote Pass graph and start node to constructor in implementation.
  */
 public interface Paths {
+
     /**
      * Is there path from start vertex to vertex {@code v}.
      *

@@ -6,6 +6,7 @@ import dev.progbloom.graph.Graph;
  * Depth first search algorithm.
  */
 public class DepthFirstSearch {
+
     private boolean[] marked;
     private int count;
 

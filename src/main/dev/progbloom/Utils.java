@@ -1,6 +1,7 @@
 package dev.progbloom;
 
 public final class Utils {
+
     private Utils() {
     }
 

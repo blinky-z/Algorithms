@@ -4,9 +4,9 @@ import static dev.progbloom.Utils.swap;
 
 /**
  * Quicksort sorting algorithm.
- * Link: {@code https://progbloom.dev/posts/26}
  */
 public class QuickSort implements AlgorithmSort<Integer> {
+
     private int partition_lomuto(Integer[] a, int p, int r) {
         int x = a[r];
         int i = p - 1;

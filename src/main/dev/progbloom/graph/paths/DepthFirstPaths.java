@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
  * This implementation finds paths using DFS.
  */
 public class DepthFirstPaths implements Paths {
+
     private boolean[] marked;
     private int[] edgeTo;
     private final int s;

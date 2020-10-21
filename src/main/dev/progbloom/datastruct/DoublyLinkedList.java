@@ -7,9 +7,14 @@ import java.util.Objects;
  * Link: {@code https://progbloom.dev/posts/28}
  */
 public class DoublyLinkedList<E> {
+
     private Node<E> head;
     private Node<E> tail;
     private int size;
+
+    public DoublyLinkedList() {
+        head = tail = null;
+    }
 
     /**
      * Returns the number of elements in this collection.
@@ -51,29 +56,12 @@ public class DoublyLinkedList<E> {
     }
 
     /**
-     * Finds first occurrence of the element with such key.
-     *
-     * @param key key
-     * @return element with such key or {@code null} if no found
-     */
-    public Node<E> search(E key) {
-        Node<E> curNode = this.head;
-        while (curNode != null) {
-            if (curNode.key == key) {
-                break;
-            }
-            curNode = curNode.next;
-        }
-        return curNode;
-    }
-
-    /**
      * Appends the specified element to the end of this list.
      *
      * @param e element to be appended to this list
      * @return inserted node
      */
-    public Node<E> add(E e) {
+    public Node<E> addLast(E e) {
         Node<E> node = new Node<>(e);
         Node<E> tail = this.tail;
         if (tail != null) {
@@ -98,11 +86,30 @@ public class DoublyLinkedList<E> {
         Node<E> newNode = new Node<>(e);
         newNode.prev = node.prev;
         newNode.next = node;
-        if (node.prev == null) {
+        if (node.prev == null) { // если переданная нода является головой, то сместить голову на новый элемент
             this.head = newNode;
         }
         node.prev = newNode;
         size++;
+        return newNode;
+    }
+
+    /**
+     * Inserts the specified element after the specified node in this list.
+     *
+     * @param node node after which new element should be inserted
+     * @param e    element to be inserted
+     * @return inserted node
+     */
+    public Node<E> addAfter(Node<E> node, E e) {
+        Node<E> newNode = new Node<>(e);
+        newNode.next = node.next;
+        newNode.prev = node;
+        if (node.next == null) { // если переданная нода является хвостом, то сместить хвост на новый элемент
+            this.tail = newNode;
+        }
+        node.next = newNode;
+        ++size;
         return newNode;
     }
 
@@ -114,16 +121,16 @@ public class DoublyLinkedList<E> {
      */
     public boolean remove(Node<E> node) {
         if (node.prev != null) {
-            node.prev.next = node.next;
+            node.prev.next = node.next; // предыдущий элемент теперь указывает ноду, следующую за удаляемой
         } else {
-            this.head = node.next;
+            this.head = node.next; // если переданная нода является головой, то смещаем голову
         }
         if (node.next != null) {
-            node.next.prev = node.prev;
+            node.next.prev = node.prev; // следующий элемент теперь указывает на ноду, предшествующую удаляемой
         } else {
-            this.tail = node.prev;
+            this.tail = node.prev; // если переданная нода является хвостом, то смещаем хвост
         }
-        size--;
+        ++size;
         return true;
     }
 
@@ -135,19 +142,15 @@ public class DoublyLinkedList<E> {
      */
     public Node<E> removeFirst() {
         Node<E> head = this.head;
-
-        // empty list, return null
-        if (head == null) {
+        if (head == null) { // пустой список
             return null;
         }
-
-        // single element list such that head==tail, return head
-        if (head == tail) {
+        if (head == tail) { // список состоит из 1 элемента
             this.head = this.tail = null;
             return head;
         }
 
-        // replace head with successor
+        // заменить голову следующим элементом
         Node<E> headSucc = head.next;
         headSucc.prev = null;
         this.head = headSucc;
@@ -162,40 +165,19 @@ public class DoublyLinkedList<E> {
      */
     public Node<E> removeLast() {
         Node<E> tail = this.tail;
-
-        // empty list, return null
-        if (tail == null) {
+        if (tail == null) { // пустой список
             return null;
         }
-
-        // single element list such that tail==head, return tail
-        if (tail == this.head) {
+        if (tail == this.head) { // список состоит из 1 элемента
             this.head = this.tail = null;
             return tail;
         }
 
-        // replace tail with predecessor
+        // заменить хвост предшествующим элементом
         Node<E> tailPred = tail.prev;
         tailPred.next = null;
         this.tail = tailPred;
         return tail;
-    }
-
-    /**
-     * Removes the element with such key from the collection.
-     * <p>
-     * If there's no element with such key, then {@code false} will be returned.
-     *
-     * @param key key
-     * @return {@code true} if the element was deleted, {@code false} otherwise
-     */
-    public boolean removeByKey(E key) {
-        Node<E> node = search(key);
-        if (node != null) {
-            return remove(node);
-        } else {
-            return false;
-        }
     }
 
     public static class Node<E> {
@@ -210,12 +192,8 @@ public class DoublyLinkedList<E> {
         @Override
         public String toString() {
             return "Node{" +
-                    "key=" + key +
-                    '}';
+                "key=" + key +
+                '}';
         }
-    }
-
-    public DoublyLinkedList() {
-        head = tail = null;
     }
 }

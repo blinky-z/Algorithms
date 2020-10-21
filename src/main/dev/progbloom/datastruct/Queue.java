@@ -3,6 +3,7 @@ package dev.progbloom.datastruct;
 import java.util.NoSuchElementException;
 
 public interface Queue<E> {
+
     /**
      * Inserts the specified element into this queue if it is possible to do so
      * immediately without violating capacity restrictions, returning

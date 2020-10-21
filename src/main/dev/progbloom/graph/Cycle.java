@@ -4,6 +4,7 @@ package dev.progbloom.graph;
  * Finds cycles in undirected graph.
  */
 public class Cycle {
+
     private boolean[] marked;
     private boolean hasCycle;
 

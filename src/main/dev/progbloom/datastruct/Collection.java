@@ -4,6 +4,7 @@ package dev.progbloom.datastruct;
  * Abstract data type for grouping elements.
  */
 public interface Collection<E> {
+
     // Query Operations
 
     /**

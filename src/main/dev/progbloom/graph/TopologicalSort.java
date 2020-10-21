@@ -6,6 +6,7 @@ import java.util.Stack;
  * Topological sort for DAGs (directed acyclic graphs).
  */
 public class TopologicalSort {
+
     private boolean[] marked;
     private Stack<Integer> ans;
 

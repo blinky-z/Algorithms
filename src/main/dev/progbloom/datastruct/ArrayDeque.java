@@ -4,7 +4,6 @@ import java.util.NoSuchElementException;
 
 /**
  * Deque implementation using a circular buffer.
- * Link: {@code https://progbloom.dev/posts/27}
  */
 public class ArrayDeque implements Deque<Integer> {
     private Integer[] q;

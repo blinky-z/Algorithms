@@ -3,6 +3,7 @@ package dev.progbloom.sort;
 import static dev.progbloom.Utils.maxInArray;
 
 public class RadixSort implements AlgorithmSort<Integer> {
+
     private final CountingSort countingSort = new CountingSort();
 
     /**

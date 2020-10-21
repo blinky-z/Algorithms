@@ -11,6 +11,7 @@ import java.util.Queue;
  * This implementation finds paths using BFS, and moreover finds the shortest path.
  */
 public class BreadthFirstPaths implements Paths {
+
     private boolean[] marked;
     private int[] edgeTo;
     private final int s;

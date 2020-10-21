@@ -6,6 +6,7 @@ import java.util.Stack;
  * Some useful methods for graphs.
  */
 public class GraphUtils {
+
     private GraphUtils() {
     }
 

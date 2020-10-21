@@ -3,6 +3,7 @@ package dev.progbloom.datastruct;
 import java.util.NoSuchElementException;
 
 public interface Deque<E> {
+
     /**
      * Inserts the specified element at the front of this deque if it is
      * possible to do so immediately without violating capacity restrictions,

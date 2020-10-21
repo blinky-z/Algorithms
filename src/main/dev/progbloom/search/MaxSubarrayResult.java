@@ -1,6 +1,7 @@
 package dev.progbloom.search;
 
 public final class MaxSubarrayResult {
+
     public final int low;
     public final int high;
     public final int sum;

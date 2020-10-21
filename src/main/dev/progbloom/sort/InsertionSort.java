@@ -4,9 +4,9 @@ import static dev.progbloom.Utils.swap;
 
 /**
  * Insertion sort algorithm.
- * Link: {@code https://progbloom.dev/posts/19}
  */
 public class InsertionSort implements AlgorithmSort<Integer> {
+
     /**
      * Sorts an array.
      * <p>
