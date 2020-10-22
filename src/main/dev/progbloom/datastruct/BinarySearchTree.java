@@ -5,6 +5,7 @@ package dev.progbloom.datastruct;
  * Binary search tree (BST) implementation.
  */
 public class BinarySearchTree {
+
     private TreeNode root;
 
     private void inorderTraversal(TreeNode root) {

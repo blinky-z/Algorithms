@@ -4,7 +4,6 @@ import java.util.Objects;
 
 /**
  * Doubly linked list implementation.
- * Link: {@code https://progbloom.dev/posts/28}
  */
 public class DoublyLinkedList<E> {
 

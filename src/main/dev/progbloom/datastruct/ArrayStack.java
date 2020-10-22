@@ -5,41 +5,42 @@ import java.util.EmptyStackException;
 /**
  * Stack implementation using an array.
  */
-public class ArrayStack implements Stack<Integer> {
-    private Integer[] a;
+public class ArrayStack<E> implements Stack<E> {
 
-    private int last;
+    private final E[] a;
+
+    private int top;
 
     private final int arraySize = 64;
 
+    @SuppressWarnings({"unchecked"})
     public ArrayStack() {
-        a = new Integer[arraySize];
-        last = -1;
+        a = (E[]) new Object[arraySize];
+        top = -1;
     }
 
     @Override
-    public synchronized Integer push(Integer item) {
-        if (last + 1 == arraySize) {
+    public synchronized E push(E item) {
+        if (++top == arraySize) {
             throw new StackOverflowException();
         }
-        last++;
-        a[last] = item;
+        a[top] = item;
         return item;
     }
 
     @Override
-    public synchronized Integer pop() {
-        if (last == -1) {
+    public synchronized E pop() {
+        if (top == -1) {
             throw new EmptyStackException();
         }
-        Integer elem = a[last];
-        a[last] = null;
-        last--;
+        E elem = a[top];
+        a[top] = null;
+        --top;
         return elem;
     }
 
     @Override
     public boolean isEmpty() {
-        return last == -1;
+        return top == -1;
     }
 }
