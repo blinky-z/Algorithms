@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  */
 public class ArrayQueue<E> implements Queue<E> {
 
-    private E[] q;
+    private final E[] q;
 
     private final int arraySize = 64;
 
