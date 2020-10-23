@@ -3,21 +3,38 @@ package dev.progbloom.datastruct;
 import java.util.NoSuchElementException;
 
 /**
- * Queue implementation using a circular buffer.
+ * Имплементация ограниченной по размеру очереди с помощью кольцевого буфера.
  */
-public class ArrayQueue implements Queue<Integer> {
-    private Integer[] q;
+public class ArrayQueue<E> implements Queue<E> {
+
+    private E[] q;
 
     private final int arraySize = 64;
 
+    /**
+     * Голова.
+     */
     private int head;
 
+    /**
+     * Хвост.
+     */
     private int tail;
 
+    @SuppressWarnings("unchecked")
     public ArrayQueue() {
-        q = new Integer[arraySize];
+        q = (E[]) new Object[arraySize];
         head = 0;
         tail = 0;
+    }
+
+    private int movePointer(int pointer) {
+        int next = ++pointer;
+        if (next == arraySize) {
+            return 0;
+        } else {
+            return next;
+        }
     }
 
     /**
@@ -30,16 +47,14 @@ public class ArrayQueue implements Queue<Integer> {
      * @return {@code true}
      */
     @Override
-    public Integer add(Integer e) throws IllegalStateException {
+    public E add(E e) throws IllegalStateException {
+        int tail = this.tail;
         if ((tail + 1 == head) || (head == 0 && tail + 1 == arraySize)) {
             throw new IllegalStateException("Queue is full");
         }
-        q[tail] = e;
-        if (tail + 1 == arraySize) {
-            tail = 0;
-        } else {
-            tail++;
-        }
+
+        q[tail] = e; /*вставляем новый элемент*/
+        this.tail = movePointer(tail); /*сдвигаем хвост*/
         return e;
     }
 
@@ -51,17 +66,14 @@ public class ArrayQueue implements Queue<Integer> {
      * @throws NoSuchElementException if this queue is empty
      */
     @Override
-    public Integer remove() throws NoSuchElementException {
+    public E remove() throws NoSuchElementException {
+        int head = this.head;
         if (head == tail) {
             throw new NoSuchElementException("Queue is empty");
         }
-        Integer e = q[head];
+        E e = q[head];
         q[head] = null;
-        if (head + 1 == arraySize) {
-            head = 0;
-        } else {
-            head++;
-        }
+        this.head = movePointer(head);
         return e;
     }
 

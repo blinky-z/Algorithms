@@ -15,7 +15,7 @@ public interface Queue<E> {
      * @throws IllegalStateException if the element cannot be added at this
      *                               time due to capacity restrictions
      */
-    Integer add(E e) throws IllegalStateException;
+    E add(E e) throws IllegalStateException;
 
     /**
      * Retrieves and removes the head of this queue. this method throws an exception if

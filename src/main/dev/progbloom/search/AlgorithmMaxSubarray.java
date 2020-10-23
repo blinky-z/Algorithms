@@ -4,6 +4,7 @@ package dev.progbloom.search;
  * Generic interface for all the implementations of max sum subarray algorithm.
  */
 public interface AlgorithmMaxSubarray {
+
     /**
      * Finds max sum subarray.
      *
