@@ -70,7 +70,27 @@ public class DoublyLinkedList<E> {
         } else {
             this.head = this.tail = node;
         }
-        size++;
+        ++size;
+        return node;
+    }
+
+    /**
+     * Appends the specified element to the head of this list.
+     *
+     * @param e element to be appended to this list
+     * @return inserted node
+     */
+    public Node<E> addFirst(E e) {
+        Node<E> node = new Node<>(e);
+        Node<E> head = this.head;
+        if (head != null) {
+            head.prev = node;
+            node.next = head;
+            this.head = node;
+        } else {
+            this.head = this.tail = node;
+        }
+        ++size;
         return node;
     }
 
@@ -180,10 +200,10 @@ public class DoublyLinkedList<E> {
     }
 
     public static class Node<E> {
-        E key;
-        Node<E> prev, next;
+        public E key;
+        public Node<E> prev, next;
 
-        Node(E key) {
+        public Node(E key) {
             this.key = key;
             prev = next = null;
         }

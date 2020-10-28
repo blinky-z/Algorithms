@@ -148,10 +148,10 @@ public class SinglyLinkedList<E> {
     }
 
     public static class Node<E> {
-        E value;
-        Node<E> next;
+        public E value;
+        public Node<E> next;
 
-        Node(E value) {
+        public Node(E value) {
             this.value = Objects.requireNonNull(value, "Value must not be null!");
             next = null;
         }

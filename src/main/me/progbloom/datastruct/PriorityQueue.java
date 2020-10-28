@@ -1,5 +1,7 @@
 package me.progbloom.datastruct;
 
+import me.progbloom.datastruct.queue.Queue;
+
 import java.util.NoSuchElementException;
 
 /**
