@@ -6,7 +6,8 @@ import java.util.NoSuchElementException;
  * Deque implementation using a circular buffer.
  */
 public class ArrayDeque implements Deque<Integer> {
-    private Integer[] q;
+
+    private final Integer[] arr;
 
     private final int arraySize = 64;
 
@@ -15,7 +16,7 @@ public class ArrayDeque implements Deque<Integer> {
     private int tail;
 
     public ArrayDeque() {
-        q = new Integer[arraySize];
+        arr = new Integer[arraySize];
         head = 0;
         tail = 0;
     }
@@ -32,15 +33,12 @@ public class ArrayDeque implements Deque<Integer> {
      */
     @Override
     public void addFirst(Integer e) {
-        if (((head == 0 && tail == arraySize - 1) || (tail + 1 == head))) {
+        int head = this.head;
+        if (((head == arraySize - 1 && tail == 0) || (head + 1 == tail))) {
             throw new IllegalStateException("Deque is full");
         }
-        if (head == 0) {
-            head = arraySize - 1;
-        } else {
-            head--;
-        }
-        q[head] = e;
+        arr[head] = e;
+        this.head = nextHead(head);
     }
 
     /**
@@ -55,15 +53,13 @@ public class ArrayDeque implements Deque<Integer> {
      */
     @Override
     public void addLast(Integer e) {
-        if (((head == 0 && tail == arraySize - 1) || (tail + 1 == head))) {
+        int tail = this.tail;
+        if (((head == arraySize - 1 && tail == 0) || (head + 1 == tail))) {
             throw new IllegalStateException("Deque is full");
         }
-        q[tail] = e;
-        if (tail == arraySize - 1) {
-            tail = 0;
-        } else {
-            tail++;
-        }
+        tail = nextTail(tail);
+        arr[tail] = e;
+        this.tail = tail;
     }
 
     /**
@@ -75,16 +71,14 @@ public class ArrayDeque implements Deque<Integer> {
      */
     @Override
     public Integer removeFirst() {
+        int head = this.head;
         if (head == tail) {
             throw new NoSuchElementException("Deque is empty");
         }
-        Integer elem = q[head];
-        q[head] = null;
-        if (head == arraySize - 1) {
-            head = 0;
-        } else {
-            head++;
-        }
+        head = prevHead(head);
+        Integer elem = arr[head];
+        arr[head] = null;
+        this.head = head;
         return elem;
     }
 
@@ -97,16 +91,13 @@ public class ArrayDeque implements Deque<Integer> {
      */
     @Override
     public Integer removeLast() {
+        int tail = this.tail;
         if (head == tail) {
             throw new NoSuchElementException("Deque is empty");
         }
-        if (tail == 0) {
-            tail = arraySize - 1;
-        } else {
-            tail--;
-        }
-        Integer elem = q[tail];
-        q[tail] = null;
+        Integer elem = arr[tail];
+        arr[tail] = null;
+        this.tail = prevTail(tail);
         return elem;
     }
 
@@ -118,5 +109,35 @@ public class ArrayDeque implements Deque<Integer> {
     @Override
     public boolean isEmpty() {
         return head == tail;
+    }
+
+    /*Utility Methods*/
+
+    private int nextHead(int head) {
+        if (head == arraySize - 1) {
+            return 0;
+        }
+        return ++head;
+    }
+
+    private int prevHead(int head) {
+        if (head == 0) {
+            return arraySize - 1;
+        }
+        return --head;
+    }
+
+    private int nextTail(int tail) {
+        if (tail == 0) {
+            return arraySize - 1;
+        }
+        return --tail;
+    }
+
+    private int prevTail(int tail) {
+        if (tail == arraySize - 1) {
+            return 0;
+        }
+        return ++tail;
     }
 }
