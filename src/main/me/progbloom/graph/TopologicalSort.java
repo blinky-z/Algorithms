@@ -7,8 +7,8 @@ import java.util.Stack;
  */
 public class TopologicalSort {
 
-    private boolean[] marked;
-    private Stack<Integer> ans;
+    private final boolean[] marked;
+    private final Stack<Integer> ans;
 
     TopologicalSort(Graph G) {
         marked = new boolean[G.V()];

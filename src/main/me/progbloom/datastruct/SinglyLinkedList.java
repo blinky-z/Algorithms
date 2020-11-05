@@ -147,6 +147,14 @@ public class SinglyLinkedList<E> {
         return true;
     }
 
+    public Node<E> getHead() {
+        return head;
+    }
+
+    public Node<E> getTail() {
+        return tail;
+    }
+
     public static class Node<E> {
         public E value;
         public Node<E> next;

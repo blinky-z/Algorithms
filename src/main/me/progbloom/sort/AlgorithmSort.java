@@ -5,7 +5,7 @@ package me.progbloom.sort;
  *
  * @param <T> input and result data type
  */
-public interface AlgorithmSort<T extends Comparable> {
+public interface AlgorithmSort<T extends Comparable<? super T>> {
 
     /**
      * Sorts an array.

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Undirected graph representation.
  * <p>
- * Graph stored as Adjacency List. Adjacency list represented as {@code List<LIst<Integer>>}
+ * Graph stored as Adjacency List. Adjacency list represented as {@code List<List<Integer>>}
  * so adding element takes {@code O(1)} time, but be aware of duplicate vertexes.
  * <p>
  * Last vertex index is V - 1, first vertex index is 0.

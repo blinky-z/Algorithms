@@ -11,6 +11,7 @@ import static me.progbloom.Utils.swap;
  * Standard empty internal array size is 64.
  */
 public class BinaryHeap {
+
     private Integer[] a;
 
     private int heapSize;
