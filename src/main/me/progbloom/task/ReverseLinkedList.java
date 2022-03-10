@@ -1,6 +1,6 @@
 package me.progbloom.task;
 
-import me.progbloom.datastruct.SinglyLinkedList.Node;
+import me.progbloom.datastruct.linkedlist.SinglyLinkedList.Node;
 
 /**
  * Разворот связного списка.

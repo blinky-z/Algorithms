@@ -1,6 +1,6 @@
-package me.progbloom.datastruct;
+package me.progbloom.datastruct.queue;
 
-import me.progbloom.datastruct.queue.Queue;
+import me.progbloom.datastruct.tree.BinaryHeap;
 
 import java.util.NoSuchElementException;
 

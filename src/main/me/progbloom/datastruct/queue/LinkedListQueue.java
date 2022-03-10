@@ -1,6 +1,6 @@
 package me.progbloom.datastruct.queue;
 
-import me.progbloom.datastruct.SinglyLinkedList;
+import me.progbloom.datastruct.linkedlist.SinglyLinkedList;
 
 /**
  * Имплементация очереди на основе связного списка.

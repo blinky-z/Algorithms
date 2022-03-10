@@ -1,7 +1,6 @@
-package me.progbloom.datastruct.queue;
+package me.progbloom.datastruct.deque;
 
-import me.progbloom.datastruct.Deque;
-import me.progbloom.datastruct.DoublyLinkedList;
+import me.progbloom.datastruct.linkedlist.DoublyLinkedList;
 
 public class LinkedListDeque<E> implements Deque<E> {
 

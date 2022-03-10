@@ -1,4 +1,4 @@
-package me.progbloom.datastruct;
+package me.progbloom.datastruct.deque;
 
 import java.util.NoSuchElementException;
 

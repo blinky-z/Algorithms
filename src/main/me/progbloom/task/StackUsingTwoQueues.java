@@ -1,6 +1,6 @@
 package me.progbloom.task;
 
-import me.progbloom.datastruct.Stack;
+import me.progbloom.datastruct.stack.Stack;
 import me.progbloom.datastruct.queue.ArrayQueue;
 import me.progbloom.datastruct.queue.Queue;
 

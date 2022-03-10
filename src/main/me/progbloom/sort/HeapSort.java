@@ -1,6 +1,6 @@
 package me.progbloom.sort;
 
-import me.progbloom.datastruct.BinaryHeap;
+import me.progbloom.datastruct.tree.BinaryHeap;
 
 /**
  * Heapsort sorting algorithm.

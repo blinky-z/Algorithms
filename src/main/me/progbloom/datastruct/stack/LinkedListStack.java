@@ -1,6 +1,7 @@
-package me.progbloom.datastruct;
+package me.progbloom.datastruct.stack;
 
-import me.progbloom.datastruct.SinglyLinkedList.Node;
+import me.progbloom.datastruct.linkedlist.SinglyLinkedList;
+import me.progbloom.datastruct.linkedlist.SinglyLinkedList.Node;
 
 import java.util.EmptyStackException;
 
