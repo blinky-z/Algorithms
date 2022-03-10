@@ -1,15 +1,14 @@
 package me.progbloom.graph.search;
 
+import me.progbloom.datastruct.queue.LinkedListQueue;
+import me.progbloom.datastruct.queue.Queue;
 import me.progbloom.graph.Graph;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Breadth first search algorithm.
  */
 public class BreadthFirstSearch {
-    
+
     private boolean[] marked;
     private int count;
 
@@ -20,11 +19,11 @@ public class BreadthFirstSearch {
     }
 
     private void bfs(Graph G, int s) {
-        Queue<Integer> q = new LinkedList<>();
+        Queue<Integer> q = new LinkedListQueue<>();
         marked[s] = true;
         q.add(s);
         while (!q.isEmpty()) {
-            int v = q.poll();
+            int v = q.remove();
             for (int w : G.adj(v)) {
                 if (!marked[w]) {
                     marked[w] = true;
