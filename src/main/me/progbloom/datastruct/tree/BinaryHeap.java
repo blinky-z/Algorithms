@@ -6,6 +6,11 @@ import static me.progbloom.Utils.swap;
 
 /**
  * Имплементация двоичной кучи
+ * <p>
+ * Для двоичной кучи выполняется 2 условия:
+ * 1. Свойство кучи: ключ в каждом узле больше или равен, чем любой из детей
+ * 2. Свойство формы: бинарная куча - это полное или почти полное бинарное дерево (complete binary tree), то есть все уровни
+ * дерева заполнены, кроме, возможно, последнего. Если последний уровень не полный, то узлы заполнены слева направо
  */
 public class BinaryHeap {
 
@@ -81,23 +86,9 @@ public class BinaryHeap {
         if (heapSize == a.length) {
             throw new IllegalStateException("Heap is full");
         }
-        a[heapSize] = Integer.MIN_VALUE;
-        increaseKey(heapSize, e);
+        a[heapSize] = e;
+        upHeapify(heapSize);
         heapSize++;
-    }
-
-    /**
-     * Увеличивает значение указанной ноды
-     *
-     * @param i      индекс ноды
-     * @param newKey новый ключ, не меньший прежнего
-     */
-    private void increaseKey(int i, int newKey) throws IllegalStateException {
-        if (newKey < a[i]) {
-            throw new IllegalStateException("New key is lower than old key");
-        }
-        a[i] = newKey;
-        upHeapify(i);
     }
 
     /**
@@ -112,7 +103,9 @@ public class BinaryHeap {
             throw new NoSuchElementException("Heap is empty");
         }
         int max = a[0];
-        a[0] = a[heapSize - 1];
+        a[0] = a[heapSize];
+        // help gc
+        a[heapSize] = null;
         heapSize--;
         downHeapify(0);
         return max;
