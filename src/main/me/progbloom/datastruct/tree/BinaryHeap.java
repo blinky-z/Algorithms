@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import static me.progbloom.Utils.swap;
 
 /**
- * Binary heap data structure implementation.
+ * Имплементация двоичной кучи
  */
 public class BinaryHeap {
 
@@ -17,7 +17,7 @@ public class BinaryHeap {
     /**
      * Массив, содержащий кучу
      */
-    private Integer[] a;
+    private final Integer[] a;
 
     /**
      * Размер кучи. Также является указателем на последний элемент.
@@ -43,26 +43,32 @@ public class BinaryHeap {
     }
 
     /**
-     * @param i индекс текущей ноды
-     * @return индекс ее родителя
+     * Возвращает индекс родителя для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс родителя
      */
-    private int parent(int i) {
+    private static int parent(int i) {
         return (i - 1) / 2;
     }
 
     /**
-     * @param i индекс текущей ноды
-     * @return индекс ее левого ребенка
+     * Возвращает индекс левого ребенка для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс левого ребенка
      */
-    private int left(int i) {
+    private static int left(int i) {
         return 2 * i + 1;
     }
 
     /**
-     * @param i индекс текущей ноды
-     * @return индекс ее левого ребенка
+     * Возвращает индекс правого ребенка для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс правого ребенка
      */
-    private int right(int i) {
+    private static int right(int i) {
         return 2 * i + 2;
     }
 
@@ -81,23 +87,26 @@ public class BinaryHeap {
     }
 
     /**
-     * Increases key of the node with index {@code i}.
+     * Увеличивает значение указанной ноды
      *
-     * @param i      node
-     * @param newKey new key such that newKey >= oldKey
-     * @throws IllegalStateException if new key is lower that old key
+     * @param i      индекс ноды
+     * @param newKey новый ключ, не меньший прежнего
      */
-    public void increaseKey(int i, int newKey) throws IllegalStateException {
+    private void increaseKey(int i, int newKey) throws IllegalStateException {
         if (newKey < a[i]) {
             throw new IllegalStateException("New key is lower than old key");
         }
         a[i] = newKey;
-        while (i > 0 && a[parent(i)] < a[i]) {
-            swap(a, parent(i), i);
-            i = parent(i);
-        }
+        upHeapify(i);
     }
 
+    /**
+     * Извлекает максимальный элемент из кучи
+     * <p>
+     * Извлеченный элемент удаляется
+     *
+     * @return максимальный элемент
+     */
     public int extractMax() throws NoSuchElementException {
         if (heapSize == 0) {
             throw new NoSuchElementException("Heap is empty");
@@ -105,18 +114,36 @@ public class BinaryHeap {
         int max = a[0];
         a[0] = a[heapSize - 1];
         heapSize--;
-        maxHeapify(0);
+        downHeapify(0);
         return max;
     }
 
     /**
-     * A recursive function to max heapify the given subtree. The root node of the given subtree is the node with index {@code i}, that is
-     * the passed index.
-     * This function assumes that left and right subtrees are already max heapified, so we only need to fix the root.
+     * Поднимает элемент вверх по дереву, пока не будет восстановлено свойство кучи
+     * <p>
+     * Данная операция также известна как <i>sink-up</i>, <i>up-heapify</i>.
      *
-     * @param i index of the subtree's root node
+     * @param i индекс ноды
      */
-    public void maxHeapify(int i) {
+    private void upHeapify(int i) {
+        while (i > 0 && a[parent(i)] < a[i]) {
+            swap(a, parent(i), i);
+            i = parent(i);
+        }
+    }
+
+    /**
+     * Опускает элемент вниз по дереву, пока не будет восстановлено свойство кучи
+     * <p>
+     * Операция предполагает, что для левого и правого поддерева уже выполняется свойство кучи.
+     * Если текущий элемент уже больше элементов в левом или правом ребенке, то ничего делать не надо, то есть мы
+     * восстановили свойство кучи.
+     * <p>
+     * Данная операция также известна как <i>max-heapify</i>.
+     *
+     * @param i индекс ноды
+     */
+    private void downHeapify(int i) {
         int l = left(i);
         int r = right(i);
         int largest = i;
@@ -132,7 +159,7 @@ public class BinaryHeap {
 
         if (largest != i) {
             swap(a, i, largest);
-            maxHeapify(largest);
+            downHeapify(largest);
         }
     }
 
@@ -142,15 +169,20 @@ public class BinaryHeap {
     private void buildMaxHeap() {
         heapSize = a.length - 1;
         for (int i = a.length / 2; i >= 0; i--) {
-            maxHeapify(i);
+            downHeapify(i);
         }
     }
 
+    /**
+     * Выполняет пирамидальную сортировку
+     *
+     * @return отсортированный массив
+     */
     public Integer[] heapsort() {
         while (heapSize >= 1) {
             swap(a, 0, heapSize);
             heapSize--;
-            maxHeapify(0);
+            downHeapify(0);
         }
         return a;
     }
