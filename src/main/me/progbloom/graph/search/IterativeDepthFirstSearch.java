@@ -13,7 +13,6 @@ import me.progbloom.graph.Graph;
 public class IterativeDepthFirstSearch {
 
     private boolean[] marked;
-    private int count;
 
     /**
      * Performs depth-first search (DFS) on the given graph on construct.

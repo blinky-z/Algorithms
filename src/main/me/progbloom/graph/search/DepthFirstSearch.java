@@ -8,7 +8,6 @@ import me.progbloom.graph.Graph;
 public class DepthFirstSearch {
 
     private boolean[] marked;
-    private int count;
 
     /**
      * Performs depth-first search (DFS) on the given graph on construct.
@@ -23,7 +22,6 @@ public class DepthFirstSearch {
 
     private void dfs(Graph G, int v) {
         marked[v] = true;
-        count++;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
                 dfs(G, w);
@@ -39,14 +37,5 @@ public class DepthFirstSearch {
      */
     public boolean marked(int w) {
         return marked[w];
-    }
-
-    /**
-     * How many vertexes was visited.
-     *
-     * @return number of vertexes visited
-     */
-    public int count() {
-        return count;
     }
 }

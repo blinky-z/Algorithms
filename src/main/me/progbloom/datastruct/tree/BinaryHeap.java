@@ -86,12 +86,11 @@ public class BinaryHeap {
     public void maxHeapify(int i) {
         int l = left(i);
         int r = right(i);
-        int largest;
+        int largest = i;
 
-        if (l <= heapSize && a[l] > a[i]) {
+        // нужна проверка на сравнение с heapSize, т.к. мы могли бы получить индекс несуществующей ноды, если дальше элементов нет
+        if (l <= heapSize && a[l] > a[largest]) {
             largest = l;
-        } else {
-            largest = i;
         }
 
         if (r <= heapSize && a[r] > a[largest]) {
