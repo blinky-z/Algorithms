@@ -6,38 +6,71 @@ import static me.progbloom.Utils.swap;
 
 /**
  * Binary heap data structure implementation.
- * <p>
- * To construct max binary heap from passed array, call function {@link #buildMaxHeap()} explicitly.
- * Standard empty internal array size is 64.
  */
 public class BinaryHeap {
 
+    /**
+     * Максимальный размер кучи.
+     */
+    private static final int MAX_HEAP_SIZE = 64;
+
+    /**
+     * Массив, содержащий кучу
+     */
     private Integer[] a;
 
+    /**
+     * Размер кучи. Также является указателем на последний элемент.
+     */
     private int heapSize;
 
+    /**
+     * Конструктор пустой кучи
+     */
     public BinaryHeap() {
-        this.a = new Integer[64];
+        this.a = new Integer[MAX_HEAP_SIZE];
         heapSize = 0;
     }
 
+    /**
+     * Конструктор кучи на основе переданного массива
+     *
+     * @param a массив с данными
+     */
     public BinaryHeap(Integer[] a) {
-        this.a = a;
-        this.heapSize = 0;
+        this.a = a.clone();
+        buildMaxHeap();
     }
 
+    /**
+     * @param i индекс текущей ноды
+     * @return индекс ее родителя
+     */
     private int parent(int i) {
         return (i - 1) / 2;
     }
 
+    /**
+     * @param i индекс текущей ноды
+     * @return индекс ее левого ребенка
+     */
     private int left(int i) {
         return 2 * i + 1;
     }
 
+    /**
+     * @param i индекс текущей ноды
+     * @return индекс ее левого ребенка
+     */
     private int right(int i) {
         return 2 * i + 2;
     }
 
+    /**
+     * Добавляет элемент в кучу
+     *
+     * @param e элемент
+     */
     public void add(Integer e) throws IllegalStateException {
         if (heapSize == a.length) {
             throw new IllegalStateException("Heap is full");
@@ -103,7 +136,10 @@ public class BinaryHeap {
         }
     }
 
-    public void buildMaxHeap() {
+    /**
+     * Строит кучу из неотсортированного массива
+     */
+    private void buildMaxHeap() {
         heapSize = a.length - 1;
         for (int i = a.length / 2; i >= 0; i--) {
             maxHeapify(i);
@@ -111,7 +147,6 @@ public class BinaryHeap {
     }
 
     public Integer[] heapsort() {
-        buildMaxHeap();
         while (heapSize >= 1) {
             swap(a, 0, heapSize);
             heapSize--;
