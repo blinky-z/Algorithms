@@ -97,7 +97,12 @@
 ## Как говорить ассимптотические оценки на английском
 
 - Сама нотация так и говорится - Big-O(h).
-- Как давать оценки: O(1) - big oh of one; O(log n) - big oh of log n; O(n) - big oh of N; O(n^2) - big oh of n squared
+- Как давать оценки: 
+  - O(1) - big oh of one; constant time
+  - O(log n) - big oh of log n; logarithmic time
+  - O(n) - big oh of N; linear time
+  - O(n^2) - big oh of n squared
+  - O(2^n) - big oh of power of two
 - Случаи: worst case, best case, average case.
 
 ## Другое
