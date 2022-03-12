@@ -199,9 +199,6 @@ data structure, то обход можно сделать с помощью ре
 2. Postorder (LRN)
 3. Inorder (LNR)
 
-Обход дерева на рисунке - красный - Pre-Order, зеленый - In-Order, синий - Post-order
-![img.png](img.png)
-
 ### Применение DFS
 
 - Нахождение компонент связности
