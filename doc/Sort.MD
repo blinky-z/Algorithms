@@ -76,7 +76,7 @@ https://airtucha.github.io/SortVis/
 
 ![img_1.png](img_1.png)
 
-После итерации так:
+После итерации уже так:
 
 ![img_2.png](img_2.png)
 
