@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SortTests {
+
     static Stream<Arguments> provideSortingAlgorithms() {
         return Stream.of(
                 Arguments.of(new InsertionSort()),
@@ -45,12 +46,12 @@ class SortTests {
         for (int currentTry = 0; currentTry < tryCount; currentTry++) {
             Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen, 1000);
 
-            Integer[] sortedArray = Arrays.copyOf(unsortedArray, initDataLen);
-            Arrays.sort(sortedArray);
+            Integer[] expected = Arrays.copyOf(unsortedArray, initDataLen);
+            Arrays.sort(expected);
 
-            Integer[] returnedArray = algorithmSort.sort(unsortedArray);
+            Integer[] actual = algorithmSort.sort(unsortedArray);
 
-            assertThat(returnedArray).containsExactly(sortedArray);
+            assertThat(actual).containsExactly(expected);
         }
     }
 

@@ -3,26 +3,72 @@ package me.progbloom.sort;
 import static me.progbloom.Utils.swap;
 
 /**
- * Quicksort sorting algorithm.
+ * Быстрая сортировка (Quick Sort)
  */
 public class QuickSort implements AlgorithmSort<Integer> {
 
-    private int partition_lomuto(Integer[] a, int p, int r) {
-        int x = a[r];
-        int i = p - 1;
+    /**
+     * Разбиение Ломуто: производит разбиение отрезка массива на два подотрезка: "меньшие или равные" и "большие"
+     * опорного элемента
+     * <p>
+     * Опорным выбирается последний элемент отрезка.
+     *
+     * @param a массив
+     * @param p индекс начала отрезка, включительно
+     * @param r индекс конца отрезка, включительно
+     * @return индекс опорного элемента
+     */
+    private int partitionLomuto(Integer[] a, int p, int r) {
+        int pivot = a[r];
+        int partitionIdx = p;
         for (int j = p; j < r; j++) {
-            if (a[j] <= x) {
-                i++;
-                swap(a, i, j);
+            if (a[j] <= pivot) {
+                swap(a, partitionIdx, j);
+                partitionIdx++;
             }
         }
-        swap(a, i + 1, r);
-        return i + 1;
+        // ставим опорный элемент на место
+        swap(a, partitionIdx, r);
+        return partitionIdx;
     }
 
+    /**
+     * Разбиение Хоара: производит разбиение отрезка массива на два подотрезка: "меньшие или равные" и "большие"
+     * опорного элемента
+     *
+     * @param a массив
+     * @param p индекс начала отрезка, включительно
+     * @param r индекс конца отрезка, включительно
+     * @return индекс опорного элемента
+     */
+    private int partitionHoare(Integer[] a, int p, int r) {
+        int pivot = a[(p + r) / 2];
+        int i = p;
+        int j = r;
+        while (true) {
+            while (a[i] < pivot) {
+                i++;
+            }
+            while (a[j] > pivot) {
+                j--;
+            }
+            if (i >= j) {
+                return j;
+            }
+            swap(a, i, j);
+        }
+    }
+
+    /**
+     * Производит быструю сортировку указанного отрезка массива (отрезок может быть самим массивом)
+     *
+     * @param a массив
+     * @param p индекс начала отрезка, включительно
+     * @param r индекс конца отрезка, включительно
+     */
     private void quicksort(Integer[] a, int p, int r) {
         if (p < r) {
-            int q = partition_lomuto(a, p, r);
+            int q = partitionLomuto(a, p, r);
             quicksort(a, p, q - 1);
             quicksort(a, q + 1, r);
         }
