@@ -2,6 +2,7 @@ package me.progbloom.datastruct.tree;
 
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 /**
  * Имплементация бинарного дерева поиска (Binary Search Tree, BST).
@@ -185,18 +186,23 @@ public class BinarySearchTree {
         return y;
     }
 
+    public void inorderTraversal(Consumer<Integer> consumer) {
+        inorderTraversal(root, consumer);
+    }
+
     /**
      * In-order обход дерева
      * <p>
      * Такой обход позволяет обойти элементы дерева в неубывающем порядке ключей.
      *
-     * @param root корень дерева
+     * @param root     корень дерева
+     * @param consumer consumer ключа текущей ноды
      */
-    public void inorderTraversal(Node root) {
+    private void inorderTraversal(Node root, Consumer<Integer> consumer) {
         if (root != null) {
-            inorderTraversal(root.left);
-            System.out.print(root.key);
-            inorderTraversal(root.right);
+            inorderTraversal(root.left, consumer);
+            consumer.accept(root.key);
+            inorderTraversal(root.right, consumer);
         }
     }
 }

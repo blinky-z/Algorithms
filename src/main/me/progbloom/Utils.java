@@ -5,8 +5,8 @@ public final class Utils {
     private Utils() {
     }
 
-    public static void swap(Comparable<?>[] a, int i, int j) {
-        Comparable<?> temp = a[i];
+    public static void swap(int[] a, int i, int j) {
+        int temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
@@ -17,10 +17,10 @@ public final class Utils {
      * @param a a not empty array
      * @return value of max element
      */
-    public static <T extends Comparable<? super T>> T maxInArray(T[] a) {
-        T max = a[0];
+    public static int maxInArray(int[] a) {
+        int max = a[0];
         for (int i = 1; i < a.length; i++) {
-            if (a[i].compareTo(max) > 0) {
+            if (a[i] > max) {
                 max = a[i];
             }
         }

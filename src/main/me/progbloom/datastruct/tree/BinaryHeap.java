@@ -22,7 +22,7 @@ public class BinaryHeap {
     /**
      * Массив, содержащий кучу
      */
-    private final Integer[] a;
+    private final int[] a;
 
     /**
      * Размер кучи. Также является указателем на последний элемент.
@@ -33,7 +33,7 @@ public class BinaryHeap {
      * Конструктор пустой кучи
      */
     public BinaryHeap() {
-        this.a = new Integer[MAX_HEAP_SIZE];
+        this.a = new int[MAX_HEAP_SIZE];
         heapSize = 0;
     }
 
@@ -42,8 +42,8 @@ public class BinaryHeap {
      *
      * @param a массив с данными
      */
-    public BinaryHeap(Integer[] a) {
-        this.a = a.clone();
+    public BinaryHeap(int[] a) {
+        this.a = a;
         buildMaxHeap();
     }
 
@@ -104,8 +104,6 @@ public class BinaryHeap {
         }
         int max = a[0];
         a[0] = a[heapSize];
-        // help gc
-        a[heapSize] = null;
         heapSize--;
         downHeapify(0);
         return max;
@@ -167,21 +165,14 @@ public class BinaryHeap {
     }
 
     /**
-     * Выполняет пирамидальную сортировку
-     *
-     * @return отсортированный массив
+     * Выполняет пирамидальную сортировку underlying массива
      */
-    public Integer[] heapsort() {
+    public void heapsort() {
         while (heapSize >= 1) {
             swap(a, 0, heapSize);
             heapSize--;
             downHeapify(0);
         }
-        return a;
-    }
-
-    public Integer[] getArray() {
-        return a;
     }
 
     public boolean isEmpty() {

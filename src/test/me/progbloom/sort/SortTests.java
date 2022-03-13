@@ -13,62 +13,63 @@ class SortTests {
 
     static Stream<Arguments> provideSortingAlgorithms() {
         return Stream.of(
-                Arguments.of(new InsertionSort()),
+                Arguments.of(new BubbleSort()),
                 Arguments.of(new SelectionSort()),
-                Arguments.of(new MergeSort()),
-                Arguments.of(new HeapSort()),
+                Arguments.of(new InsertionSort()),
                 Arguments.of(new QuickSort()),
+                Arguments.of(new MergeSort()),
+                Arguments.of(new TreeSort()),
+                Arguments.of(new HeapSort()),
                 Arguments.of(new CountingSort()),
                 Arguments.of(new RadixSort())
-
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideSortingAlgorithms")
-    void givenEmptyArray_sort_shouldReturnEmptyArray(AlgorithmSort<Integer> algorithmSort) {
-        Integer[] data = new Integer[0];
-        assertThat(algorithmSort.sort(data)).containsExactly(data);
+    void givenEmptyArray_sort_shouldNotFail(AlgorithmSort algorithmSort) {
+        int[] data = new int[0];
+        algorithmSort.sort(data);
+        assertThat(data).isEmpty();
     }
 
     @ParameterizedTest
     @MethodSource("provideSortingAlgorithms")
-    void givenSingleElementArray_sort_shouldReturnSingleElementArray(AlgorithmSort<Integer> algorithmSort) {
-        Integer[] data = new Integer[]{1};
-        assertThat(algorithmSort.sort(data)).containsExactly(data);
+    void givenSingleElementArray_sort_shouldNotFail(AlgorithmSort algorithmSort) {
+        int[] data = {1};
+        algorithmSort.sort(data);
+        assertThat(data).containsExactly(1);
     }
 
     @ParameterizedTest
     @MethodSource("provideSortingAlgorithms")
-    void givenUnsortedArray_sort_shouldReturnSortedArray(AlgorithmSort<Integer> algorithmSort) {
+    void givenUnsortedArray_sort_shouldReturnSortedArray(AlgorithmSort algorithmSort) {
         int tryCount = 10;
-        int initDataLen = 100;
+        int arrLength = 1000;
         for (int currentTry = 0; currentTry < tryCount; currentTry++) {
-            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen, 1000);
+            int[] data = TestUtils.generateRandomValuesArray(arrLength, 1000);
 
-            Integer[] expected = Arrays.copyOf(unsortedArray, initDataLen);
+            int[] expected = Arrays.copyOf(data, arrLength);
             Arrays.sort(expected);
 
-            Integer[] actual = algorithmSort.sort(unsortedArray);
-
+            int[] actual = Arrays.copyOf(data, arrLength);
+            algorithmSort.sort(actual);
             assertThat(actual).containsExactly(expected);
         }
     }
 
     @ParameterizedTest
     @MethodSource("provideSortingAlgorithms")
-    void givenSortedArray_sort_shouldReturnSortedArray(AlgorithmSort<Integer> algorithmSort) {
+    void givenSortedArray_sort_shouldReturnSortedArray(AlgorithmSort algorithmSort) {
         int tryCount = 10;
-        int initDataLen = 100;
+        int arrLength = 100;
         for (int currentTry = 0; currentTry < tryCount; currentTry++) {
-            Integer[] unsortedArray = TestUtils.generateRandomValuesArray(initDataLen, 1000);
+            int[] sorted = TestUtils.generateRandomValuesArray(arrLength, 1000);
+            Arrays.sort(sorted);
 
-            Integer[] sortedArray = Arrays.copyOf(unsortedArray, initDataLen);
-            Arrays.sort(sortedArray);
-
-            Integer[] returnedArray = algorithmSort.sort(sortedArray);
-
-            assertThat(returnedArray).containsExactly(sortedArray);
+            int[] actual = Arrays.copyOf(sorted, arrLength);
+            algorithmSort.sort(actual);
+            assertThat(actual).containsExactly(sorted);
         }
     }
 }

@@ -14,14 +14,14 @@ import static me.progbloom.Utils.swap;
  * @author Dmitry Alexandrov (alexandrov@yoomoney.ru)
  * @since 13.03.2022
  */
-public class BubbleSort<T extends Comparable<? super T>> implements AlgorithmSort<T> {
+public class BubbleSort implements AlgorithmSort {
 
     @Override
-    public T[] sort(T[] a) {
+    public void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             boolean sinkedUp = false;
             for (int j = 1; j < a.length - i; j++) {
-                if (a[j - 1].compareTo(a[j]) > 0) {
+                if (a[j - 1] > a[j]) {
                     swap(a, j - 1, j);
                     sinkedUp = true;
                 }
@@ -30,6 +30,5 @@ public class BubbleSort<T extends Comparable<? super T>> implements AlgorithmSor
                 break;
             }
         }
-        return a;
     }
 }

@@ -5,10 +5,10 @@ import static me.progbloom.Utils.swap;
 /**
  * Сортировка выбором
  */
-public class SelectionSort implements AlgorithmSort<Integer> {
+public class SelectionSort implements AlgorithmSort {
 
     @Override
-    public Integer[] sort(Integer[] a) {
+    public void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             int minIdx = i;
             for (int j = i + 1; j < a.length; j++) {
@@ -18,6 +18,5 @@ public class SelectionSort implements AlgorithmSort<Integer> {
             }
             swap(a, i, minIdx);
         }
-        return a;
     }
 }

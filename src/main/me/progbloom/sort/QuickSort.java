@@ -5,7 +5,7 @@ import static me.progbloom.Utils.swap;
 /**
  * Быстрая сортировка (Quick Sort)
  */
-public class QuickSort implements AlgorithmSort<Integer> {
+public class QuickSort implements AlgorithmSort {
 
     /**
      * Разбиение Ломуто: производит разбиение отрезка массива на два подотрезка: "меньшие или равные" и "большие"
@@ -18,7 +18,7 @@ public class QuickSort implements AlgorithmSort<Integer> {
      * @param r индекс конца отрезка, включительно
      * @return индекс опорного элемента
      */
-    private int partitionLomuto(Integer[] a, int p, int r) {
+    private int partitionLomuto(int[] a, int p, int r) {
         int pivot = a[r];
         int partitionIdx = p;
         for (int j = p; j < r; j++) {
@@ -41,7 +41,7 @@ public class QuickSort implements AlgorithmSort<Integer> {
      * @param r индекс конца отрезка, включительно
      * @return индекс опорного элемента
      */
-    private int partitionHoare(Integer[] a, int p, int r) {
+    private int partitionHoare(int[] a, int p, int r) {
         int pivot = a[(p + r) / 2];
         int i = p;
         int j = r;
@@ -66,7 +66,7 @@ public class QuickSort implements AlgorithmSort<Integer> {
      * @param p индекс начала отрезка, включительно
      * @param r индекс конца отрезка, включительно
      */
-    private void quicksort(Integer[] a, int p, int r) {
+    private void quicksort(int[] a, int p, int r) {
         if (p < r) {
             int q = partitionLomuto(a, p, r);
             quicksort(a, p, q - 1);
@@ -81,8 +81,7 @@ public class QuickSort implements AlgorithmSort<Integer> {
      * @return sorted array
      */
     @Override
-    public Integer[] sort(Integer[] a) {
+    public void sort(int[] a) {
         quicksort(a, 0, a.length - 1);
-        return a;
     }
 }

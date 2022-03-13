@@ -5,16 +5,10 @@ import me.progbloom.datastruct.tree.BinaryHeap;
 /**
  * Heapsort sorting algorithm.
  */
-public class HeapSort implements AlgorithmSort<Integer> {
+public class HeapSort implements AlgorithmSort {
 
-    /**
-     * Sorts an array.
-     *
-     * @param a array to sort
-     * @return sorted array
-     */
     @Override
-    public Integer[] sort(Integer[] a) {
-        return new BinaryHeap(a).heapsort();
+    public void sort(int[] a) {
+        new BinaryHeap(a).heapsort();
     }
 }

@@ -17,7 +17,7 @@ public class PriorityQueue implements Queue<Integer> {
     private static final int queueSize = 64;
 
     public PriorityQueue() {
-        this.heap = new BinaryHeap(new Integer[queueSize]);
+        this.heap = new BinaryHeap(new int[queueSize]);
     }
 
     /**
