@@ -16,7 +16,7 @@ https://airtucha.github.io/SortVis/
 
 # Сложность популярных алгоритмов
 
-![img.png](img.png)
+![img.png](assets/img_18.png)
 
 # Список и описание алгоритмов
 
