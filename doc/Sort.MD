@@ -22,6 +22,12 @@ https://airtucha.github.io/SortVis/
 
 Далее рассмотрим все необходимые для понимания алгоритмы сортировки.
 
+Перед началом приведу цитату Дональда Кнутта:
+> It would be nice if only one or two of the sorting methods would dominate all of the others, regardless of application
+or the computer being used. But in fact, each method has its own peculiar virtues. [...] Thus we find that nearly all of
+the algorithms deserve to be remembered, since there are some applications in which they turn out to be best. — Donald
+Knuth, The Art Of Computer Programming, Volume 3
+
 # Медленные сортировки - O(n^2)
 
 Здесь посмотрим на медленные сортировки, работающие за O(n^2).
