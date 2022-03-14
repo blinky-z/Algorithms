@@ -15,17 +15,14 @@ import static me.progbloom.Utils.swap;
 public class BinaryHeap {
 
     /**
-     * Максимальный размер кучи.
-     */
-    private static final int MAX_HEAP_SIZE = 64;
-
-    /**
      * Массив, содержащий кучу
      */
     private final int[] a;
 
     /**
-     * Размер кучи. Также является указателем на последний элемент.
+     * Размер кучи
+     * <p>
+     * Индекс последнего элемента в массиве {@link #a} - это {@code heapSize - 1}.
      */
     private int heapSize;
 
@@ -33,18 +30,21 @@ public class BinaryHeap {
      * Конструктор пустой кучи
      */
     public BinaryHeap() {
-        this.a = new int[MAX_HEAP_SIZE];
+        this.a = new int[64];
         heapSize = 0;
     }
 
     /**
-     * Конструктор кучи на основе переданного массива
+     * Строит кучу из неотсортированного массива (buildMaxHeap) за время O(n)
      *
      * @param a массив с данными
      */
     public BinaryHeap(int[] a) {
         this.a = a;
-        buildMaxHeap();
+        this.heapSize = a.length;
+        for (int i = a.length / 2; i >= 0; i--) {
+            downHeapify(i);
+        }
     }
 
     /**
@@ -82,7 +82,7 @@ public class BinaryHeap {
      *
      * @param e элемент
      */
-    public void add(Integer e) throws IllegalStateException {
+    public void add(int e) throws IllegalStateException {
         if (heapSize == a.length) {
             throw new IllegalStateException("Heap is full");
         }
@@ -155,21 +155,13 @@ public class BinaryHeap {
     }
 
     /**
-     * Строит кучу из неотсортированного массива
-     */
-    private void buildMaxHeap() {
-        heapSize = a.length - 1;
-        for (int i = a.length / 2; i >= 0; i--) {
-            downHeapify(i);
-        }
-    }
-
-    /**
      * Выполняет пирамидальную сортировку underlying массива
+     * <p>
+     * После отработки этого метода куча больше не подлежит использованию.
      */
     public void heapsort() {
         while (heapSize >= 1) {
-            swap(a, 0, heapSize);
+            swap(a, 0, heapSize - 1);
             heapSize--;
             downHeapify(0);
         }
