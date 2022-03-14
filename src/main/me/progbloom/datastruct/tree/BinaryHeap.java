@@ -48,36 +48,6 @@ public class BinaryHeap {
     }
 
     /**
-     * Возвращает индекс родителя для указанной ноды
-     *
-     * @param i индекс ноды
-     * @return индекс родителя
-     */
-    private static int parent(int i) {
-        return (i - 1) / 2;
-    }
-
-    /**
-     * Возвращает индекс левого ребенка для указанной ноды
-     *
-     * @param i индекс ноды
-     * @return индекс левого ребенка
-     */
-    private static int left(int i) {
-        return 2 * i + 1;
-    }
-
-    /**
-     * Возвращает индекс правого ребенка для указанной ноды
-     *
-     * @param i индекс ноды
-     * @return индекс правого ребенка
-     */
-    private static int right(int i) {
-        return 2 * i + 2;
-    }
-
-    /**
      * Добавляет элемент в кучу
      *
      * @param e элемент
@@ -86,9 +56,8 @@ public class BinaryHeap {
         if (heapSize == a.length) {
             throw new IllegalStateException("Heap is full");
         }
-        int lastElemIdx = heapSize - 1;
-        a[lastElemIdx] = e;
-        upHeapify(lastElemIdx);
+        a[heapSize - 1] = e;
+        upHeapify(heapSize - 1);
         heapSize++;
     }
 
@@ -103,9 +72,8 @@ public class BinaryHeap {
         if (heapSize == 0) {
             throw new NoSuchElementException("Heap is empty");
         }
-        int lastElemIdx = heapSize - 1;
         int max = a[0];
-        a[0] = a[lastElemIdx];
+        a[0] = a[heapSize - 1];
         heapSize--;
         downHeapify(0);
         return max;
@@ -140,14 +108,13 @@ public class BinaryHeap {
         int l = left(i);
         int r = right(i);
         int largest = i;
-        int lastElemIdx = heapSize - 1;
 
-        // нужна проверка на сравнение с heapSize, т.к. мы могли бы получить индекс несуществующей ноды, если дальше элементов нет
-        if (l <= lastElemIdx && a[l] > a[largest]) {
+        // сравнение индекса с heapSize, т.к. мы могли получить индекс за пределом массива, если детей у ноды нет
+        if (l < heapSize && a[l] > a[largest]) {
             largest = l;
         }
 
-        if (r <= lastElemIdx && a[r] > a[largest]) {
+        if (r < heapSize && a[r] > a[largest]) {
             largest = r;
         }
 
@@ -170,7 +137,42 @@ public class BinaryHeap {
         }
     }
 
+    /**
+     * Проверяет, пустая ли куча
+     *
+     * @return {@code true} если куча пустая, {@code false} иначе
+     */
     public boolean isEmpty() {
         return heapSize == 0;
+    }
+
+    /**
+     * Возвращает индекс родителя для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс родителя
+     */
+    private static int parent(int i) {
+        return (i - 1) / 2;
+    }
+
+    /**
+     * Возвращает индекс левого ребенка для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс левого ребенка
+     */
+    private static int left(int i) {
+        return 2 * i + 1;
+    }
+
+    /**
+     * Возвращает индекс правого ребенка для указанной ноды
+     *
+     * @param i индекс ноды
+     * @return индекс правого ребенка
+     */
+    private static int right(int i) {
+        return 2 * i + 2;
     }
 }
