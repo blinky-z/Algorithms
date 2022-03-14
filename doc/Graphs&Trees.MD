@@ -516,7 +516,7 @@ heapify не будет иметь эффекта. Следовательно, �
 <details>
     <summary>Доказательство</summary>
 
-![img.png](assets/buildHeapInLinearProof.png)
+![img.png](assets/build_heap_in_linear_time_proof.png)
 </details>
 
 #### Альтернативный вариант построения кучи. Сравнение
