@@ -22,7 +22,7 @@ public class BinaryHeap {
     /**
      * Размер кучи
      * <p>
-     * Индекс последнего элемента в массиве {@link #a} - это {@code heapSize - 1}.
+     * Индекс последнего элемента в массиве - это {@code heapSize - 1}.
      */
     private int heapSize;
 
@@ -86,8 +86,9 @@ public class BinaryHeap {
         if (heapSize == a.length) {
             throw new IllegalStateException("Heap is full");
         }
-        a[heapSize] = e;
-        upHeapify(heapSize);
+        int lastElemIdx = heapSize - 1;
+        a[lastElemIdx] = e;
+        upHeapify(lastElemIdx);
         heapSize++;
     }
 
@@ -102,8 +103,9 @@ public class BinaryHeap {
         if (heapSize == 0) {
             throw new NoSuchElementException("Heap is empty");
         }
+        int lastElemIdx = heapSize - 1;
         int max = a[0];
-        a[0] = a[heapSize];
+        a[0] = a[lastElemIdx];
         heapSize--;
         downHeapify(0);
         return max;
@@ -138,13 +140,14 @@ public class BinaryHeap {
         int l = left(i);
         int r = right(i);
         int largest = i;
+        int lastElemIdx = heapSize - 1;
 
         // нужна проверка на сравнение с heapSize, т.к. мы могли бы получить индекс несуществующей ноды, если дальше элементов нет
-        if (l <= heapSize && a[l] > a[largest]) {
+        if (l <= lastElemIdx && a[l] > a[largest]) {
             largest = l;
         }
 
-        if (r <= heapSize && a[r] > a[largest]) {
+        if (r <= lastElemIdx && a[r] > a[largest]) {
             largest = r;
         }
 
