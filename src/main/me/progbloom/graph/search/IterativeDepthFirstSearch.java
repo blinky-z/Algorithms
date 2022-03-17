@@ -25,9 +25,9 @@ public class IterativeDepthFirstSearch {
         dfs(G, s);
     }
 
-    private void dfs(Graph G, int start) {
+    private void dfs(Graph G, int root) {
         Stack<Integer> stack = new ArrayStack<>();
-        stack.push(start);
+        stack.push(root);
         while (!stack.isEmpty()) {
             Integer v = stack.pop();
             if (marked[v]) {
