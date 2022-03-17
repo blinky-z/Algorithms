@@ -16,10 +16,10 @@ public class BreadthFirstSearch {
         bfs(G, s);
     }
 
-    private void bfs(Graph G, int s) {
+    private void bfs(Graph G, int root) {
         Queue<Integer> q = new LinkedListQueue<>();
-        marked[s] = true;
-        q.add(s);
+        marked[root] = true;
+        q.add(root);
         while (!q.isEmpty()) {
             int v = q.remove();
             for (int w : G.adj(v)) {
