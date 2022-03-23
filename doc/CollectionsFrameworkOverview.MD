@@ -96,7 +96,7 @@ Set предназначен для хранения уникальных зна
 
 [PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html)
 
-PriorityQueue - это очередь с приоритетом, которая построена на основе Heap.
+PriorityQueue - это имплементация АТД "Очередь с приоритетом", которая построена на основе Heap.
 
 Хотя эта структура данных и имплементирует интерфейс Queue, не надо рассматривать эту структуру данных как очередь FIFO,
 так как PriorityQueue предназначена для другой цели: поддерживать в голове очереди наименьший или наибольший элемент
@@ -120,8 +120,8 @@ class MaxPriorityQueue {
 
 [TreeMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html)
 
-TreeMap имплементирует интерфейс NavigableMap и SortedMap. TreeMap - это мапа с отсортированным порядком элементов,
-которая построена на основе BST, а точнее Red-Black Tree.
+TreeMap - это мапа с отсортированным порядком элементов (sorted map), которая построена на основе BST, а точнее
+Red-Black Tree.
 
 Применение:
 
