@@ -136,6 +136,3 @@ TreeMap имплементирует интерфейс NavigableMap и SortedMa
   inclusive или exclusive границы
 - headMap(K, boolean) и tailMap(K, boolean) - возвращают сабсет мапы с ключами, соответственно меньшими или большими чем
   указанный. Boolean параметры указывают, inclusive или exclusive граница
-
----
-
