@@ -5,14 +5,14 @@
 Классы, имплементирующие АТД и предназначенные для использования в общих случаях:
 
 - **List** - ArrayList, LinkedList
-- **Deque (Queue, Stack)** - ArrayDeque
+- **Deque** - ArrayDeque
 - **Map** - HashMap, LinkedHashMap
 - **Set** - HashSet, LinkedHashSet
 
-Классы, представляющие собой структуры данных, которые предназначены для использования в специфических случаях:
+Классы, которые предназначены для использования в специфических случаях:
 
-- **BST** - TreeMap, TreeSet
-- **Heap** - PriorityQueue
+- **TreeMap, TreeSet** - представляют собой Sorted Map (отсортированная мапа) и построены на основе *BST*
+- **PriorityQueue** - имплементирует АТД Priority Queue (очередь с приоритетом). Построен на основе *Heap*
 
 ---
 
