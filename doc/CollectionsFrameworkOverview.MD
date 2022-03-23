@@ -5,7 +5,7 @@
 Классы, имплементирующие АТД и предназначенные для использования в общих случаях:
 
 - **List** - ArrayList, LinkedList
-- **Deque** - ArrayDeque
+- **Deque (Double-ended queue)** - ArrayDeque
 - **Map** - HashMap, LinkedHashMap
 - **Set** - HashSet, LinkedHashSet
 
