@@ -129,9 +129,9 @@ Complete или perfect binary tree всегда являются сбаланс
 
 Сводка:
 
-- Perfect: должно быть сбалансированным; должно быть full
-- Complete: должно быть сбалансированным; может быть full
-- Full: может быть сбалансированным; может быть complete
+- Perfect: должно быть balanced; должно быть full
+- Complete: должно быть balanced; может быть full
+- Full: может быть balanced; может быть complete
 
 ### Свойства сбалансированных деревьев
 
