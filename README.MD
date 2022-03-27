@@ -13,7 +13,7 @@
 Вот что имеется на данный момент:
 
 - [O-нотация](doc/O-notation.MD)
-- [Графы, деревья](doc/Graphs&Trees.MD)
+- [Графы & деревья](doc/Graphs&Trees.MD)
 - [Алгоритмы сортировок](doc/Sort.MD)
-- [Хеширование](doc/Hashing.MD)
+- [Хеширование & Хеш-мапа](doc/Hashing & HashMap.MD)
 - [Master Theorem](doc/MasterTheorem.MD)
