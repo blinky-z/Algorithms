@@ -15,5 +15,5 @@
 - [O-нотация](doc/O-notation.MD)
 - [Графы & деревья](doc/Graphs&Trees.MD)
 - [Алгоритмы сортировок](doc/Sort.MD)
-- [Хеширование & Хеш-мапа](doc/Hashing & HashMap.MD)
+- [Хеширование & Хеш-мапа](doc/Hashing&HashMap.MD)
 - [Master Theorem](doc/MasterTheorem.MD)
