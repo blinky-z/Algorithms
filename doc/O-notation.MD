@@ -172,11 +172,11 @@ bound). То есть такую оценку, которая точно огр�
 
 - Сама нотация так и говорится - Big-O(h).
 - Как давать оценки:
-    - O(1) - big oh of one; constant time
-    - O(log n) - big oh of log n; logarithmic
-    - O(n) - big oh of N; linear time
-    - O(n^2) - big oh of n squared; quadratic
-    - O(2^n) - big oh of power of two; exponential
+    - `O(1)` - big oh of one; constant time
+    - `O(log n)` - big oh of log n; logarithmic
+    - `O(n)` - big oh of N; linear time
+    - `O(n^2)` - big oh of n squared; quadratic
+    - `O(2^n)` - big oh of power of two; exponential
 - Случаи: worst case, best case, average case.
 
 ---
