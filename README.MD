@@ -29,10 +29,14 @@
   - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
   - [Связный список](doc/collections/LinkedList.MD)
 - [Графы и деревья](doc/collections/Graphs&Trees.MD)
-- [Обзор Java Collections Framework](doc/collections/JavaCollectionsFrameworkOverview.MD)
+
+### Java
+
+- [Устройство Java объектов в памяти](doc/java/JavaObjectInternal.MD)
+- [Интернирование строк в Java](doc/java/JavaStringIntern.MD)
+- [Java Generics — Bounded Wildcards (ковариантность и контравариантность)](doc/java/JavaTypeVariance.MD)
+- [Обзор Java Collections Framework](doc/java/JavaCollectionsFrameworkOverview.MD)
 
 ### Другое
 
 - [Шардирование](doc/Sharding.MD)
-- [Устройство Java объектов в памяти](doc/JavaObjectInternal.MD)
-- [Интернирование строк в Java](doc/JavaStringIntern.MD)
