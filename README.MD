@@ -34,3 +34,5 @@
 ### Другое
 
 - [Шардирование](doc/Sharding.MD)
+- [Устройство Java объектов в памяти](doc/JavaObjectInternal.MD)
+- [Интернирование строк в Java](doc/JavaStringIntern.MD)
