@@ -10,12 +10,21 @@
 работы структур данных и алгоритмов. Все написанные статьи - мои собственные. Я стараюсь объяснять просто, не усложняя
 текст замысловатыми математическими формулами. Каталог будет постепенно обновляться и дополняться.
 
-Вот что имеется на данный момент:
+### Алгоритмы
 
 - [O-нотация](doc/O-notation.MD)
-- [Графы & деревья](doc/Graphs&Trees.MD)
 - [Алгоритмы сортировок](doc/Sort.MD)
-- [Хеширование & Хеш-мапа](doc/Hashing&HashMap.MD)
 - [Master Theorem](doc/MasterTheorem.MD)
+- [Динамическое и жадное программирование](doc/Dynamic&Greedy_Programming.MD)
+
+### Структуры данных
+
+- Абстрактные типы данных:
+  - [Ассоциативный массив, мапа](doc/collections/Map.MD)
+  - [Список](doc/collections/List.MD)
+  - [Стек](doc/collections/Stack.MD)
+  - [Очередь](doc/collections/Queue.MD)
+  - [Дек](doc/collections/Deque.MD)
+- [Хеширование & Хеш-мапа](doc/Hashing&HashMap.MD)
+- [Графы и деревья](doc/Graphs&Trees.MD)
 - [Обзор Java Collections Framework](doc/collections/JavaCollectionsFrameworkOverview.MD)
-- [Динамическое/жадное программирование](doc/Dynamic&Greedy_Programming.MD)
