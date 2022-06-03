@@ -12,19 +12,25 @@
 
 ### Алгоритмы
 
-- [O-нотация](doc/O-notation.MD)
-- [Алгоритмы сортировок](doc/Sort.MD)
-- [Master Theorem](doc/MasterTheorem.MD)
-- [Динамическое и жадное программирование](doc/Dynamic&Greedy_Programming.MD)
+- [O-нотация](doc/algorithms/O-notation.MD)
+- [Алгоритмы сортировок](doc/algorithms/Sort.MD)
+- [Master Theorem](doc/algorithms/MasterTheorem.MD)
+- [Динамическое и жадное программирование](doc/algorithms/Dynamic&Greedy_Programming.MD)
 
 ### Структуры данных
 
 - Абстрактные типы данных:
-  - [Список](doc/collections/List.MD)
-  - [Ассоциативный массив, мапа](doc/collections/Map.MD)
-  - [Стек](doc/collections/Stack.MD)
-  - [Очередь](doc/collections/Queue.MD)
-  - [Дек](doc/collections/Deque.MD)
-- [Хеширование & Хеш-мапа](doc/Hashing&HashMap.MD)
-- [Графы и деревья](doc/Graphs&Trees.MD)
+  - [Список](doc/collections/adt/List.MD)
+  - [Ассоциативный массив, мапа](doc/collections/adt/Map.MD)
+  - [Стек](doc/collections/adt/Stack.MD)
+  - [Очередь](doc/collections/adt/Queue.MD)
+  - [Дек](doc/collections/adt/Deque.MD)
+- Структуры данных:
+  - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
+  - [Связный список](doc/collections/adt/LinkedList.MD)
+- [Графы и деревья](doc/collections/Graphs&Trees.MD)
 - [Обзор Java Collections Framework](doc/collections/JavaCollectionsFrameworkOverview.MD)
+
+### Другое
+
+- [Шардирование](doc/Sharding.MD)

@@ -17,7 +17,7 @@ https://airtucha.github.io/SortVis/
 
 # Сложность популярных алгоритмов
 
-![img.png](assets/img_18.png)
+![img.png](../assets/img_18.png)
 
 # Полезные ссылки
 
@@ -50,7 +50,7 @@ https://airtucha.github.io/SortVis/
 
 Анимация работы алгоритма:
 
-![](assets/bubble-sort-example.gif)
+![](../assets/bubble-sort-example.gif)
 
 ### Характеристики
 
@@ -73,7 +73,7 @@ https://airtucha.github.io/SortVis/
 
 Анимация работы алгоритма (красный - текущий min, желтый - отсортированная последовательность, синий - текущий элемент):
 
-![](assets/selection-sort-example.gif)
+![](../assets/selection-sort-example.gif)
 
 ### Характеристики
 
@@ -99,15 +99,15 @@ https://airtucha.github.io/SortVis/
 
 То есть, смотри, перед началом работы очередной итерации картина такая (текущий элемент это x):
 
-![img_1.png](assets/img_16.png)
+![img_1.png](../assets/img_16.png)
 
 После итерации уже так:
 
-![img_2.png](assets/img_17.png)
+![img_2.png](../assets/img_17.png)
 
 Анимация работы алгоритма:
 
-![](assets/insertion-sort-example.gif)
+![](../assets/insertion-sort-example.gif)
 
 ### Характеристики
 
@@ -146,7 +146,7 @@ https://airtucha.github.io/SortVis/
 
 Вот результаты сравнения времени работы - взял из https://habr.com/ru/post/335920/:
 
-![img.png](assets/img_19.png)
+![img.png](../assets/img_19.png)
 
 --- 
 
@@ -176,7 +176,7 @@ https://airtucha.github.io/SortVis/
 Пример работы алгоритма, допустим что мы просто выбираем средний элемент отрезка в качестве опорного (выделен жирным
 цветом):
 
-![](assets/quick_sort_example.jpg)
+![](../assets/quick_sort_example.jpg)
 
 Вот псевдокод алгоритма:
 
@@ -301,11 +301,11 @@ algorithm partition(A, low, high) is
 
 Изображение работы алгоритма:
 
-![img.png](assets/img_15.png)
+![img.png](../assets/img_15.png)
 
 Анимация работы алгоритма:
 
-![](assets/merge-sort-example.gif)
+![](../assets/merge-sort-example.gif)
 
 То есть, идея заключается в том, чтобы собирать уже отсортированные подмассивы в один отсортированный. А начинаем мы
 собирать только тогда, когда дошли до последнего уровня рекурсии, т.е. базового случая - подмассива длины 1, который

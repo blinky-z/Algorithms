@@ -15,7 +15,7 @@
 - ***Enqueue (Add):*** добавить элемент в конец очереди
 - ***Dequeue (Remove):*** снять элемент с начала очереди
 
-![FIFO Queue](../assets/fifo_queue.png)
+![FIFO Queue](../../assets/fifo_queue.png)
 
 Во всех популярных имплементациях обе операции выполняются за константное время.
 
@@ -45,11 +45,11 @@
 
 Для наглядности, это ситуация полной очереди:
 
-![full_circular_buffer_queue](../assets/full_circular_buffer_queue.png)
+![full_circular_buffer_queue](../../assets/full_circular_buffer_queue.png)
 
 Здесь показана ситуация, когда произошла вставка элемента 4 и `tail` сместился вперед. Мы видим, что мы имеем пустую ячейку, чтобы положить новый элемент, однако если мы это сделаем, то `tail` будет равен `head` - а это на самом деле ситуация пустой очереди.
 
-![empty_circular_buffer_queue](../assets/empty_circular_buffer_queue.png)
+![empty_circular_buffer_queue](../../assets/empty_circular_buffer_queue.png)
 
 Здесь показана ситуация, когда все элементы были прочитаны и удалены (серым цветом показаны взятые из очереди элементы), и `head` догнал `tail`.
 

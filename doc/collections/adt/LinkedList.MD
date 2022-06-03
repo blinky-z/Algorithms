@@ -86,7 +86,7 @@ public class SinglyLinkedList<E> {
 
 Вставка после определенного элемента выглядит следующим образом:
 
-![Add Operation](../assets/linked_list_add_operation.png)
+![Add Operation](../../assets/linked_list_add_operation.png)
 
 В ноде, после которой надо вставить новый элемент, мы выставляем указатель на этот новый элемент, а сам новый элемент будет указывать на ранее следовавшей впереди ноду:
 ```java
@@ -142,7 +142,7 @@ public class SinglyLinkedList<E> {
 Удаление элемента после указанной ноды предпологает выставление ссылки на ноду, следующую за удаляемой, причем необходимо учесть случаи, когда передан хвост списка.
 
 Схема удаления:
-![Remove Operation](../assets/linked_list_remove_operation.png)
+![Remove Operation](../../assets/linked_list_remove_operation.png)
 
 ```java
     public boolean removeAfter(Node<E> node) {

@@ -17,7 +17,7 @@
 
 Пример работы стека:
 
-![LIFO Stack](../assets/lifo_stack.png)
+![LIFO Stack](../../assets/lifo_stack.png)
 
 ---
 

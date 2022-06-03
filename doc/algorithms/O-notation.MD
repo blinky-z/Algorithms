@@ -7,7 +7,7 @@ Big O, Big Omega, Big Theta - это математические обознач
 аргумента к бесконечно большому числу.
 
 Формальное определение всех O нотаций:
-![img_5.png](assets/img_5.png)
+![img_5.png](../assets/img_5.png)
 
 ## Big O и алгоритмы
 
@@ -29,7 +29,7 @@ Big O, Big Omega, Big Theta - это математические обознач
 <details>
     <summary>Оценка количества операций для сортировки вставками</summary>
 
-![img.png](assets/insertion_sort_efficiency_function.png)
+![img.png](../assets/insertion_sort_efficiency_function.png)
 </details>
 
 ## Отбрасывание non-dominant слагаемых
@@ -79,7 +79,7 @@ Big O, Big Omega, Big Theta - это математические обознач
 
 То есть, если сложность алгоритма Ω(g(n)), то для достаточно больших n время выполнения займет как минимум c * g(n).
 
-![img_6.png](assets/img_6.png)
+![img_6.png](../assets/img_6.png)
 
 ## Theta-O. Asymptotically Tight Bound
 
@@ -92,7 +92,7 @@ bound).
 Верно, что если `f(n) = θ(g(n))`, то `f(n) = Ω(g(n))` и `f(n) = O(g(n))`. И верно обратное: если `f(n) = Ω(g(n))`
 и `f(n) = O(g(n))`, то `f(n) = θ(g(n))`.
 
-![img_7.png](assets/img_7.png)
+![img_7.png](../assets/img_7.png)
 
 ## Big-O
 
@@ -116,7 +116,7 @@ bound).
 
 Так, если время выполнения O(g(n)), то для достаточно больших n время выполнения займет как максимум c * g(n).
 
-![img_8.png](assets/img_8.png)
+![img_8.png](../assets/img_8.png)
 
 ---
 
