@@ -17,5 +17,5 @@
 - [Алгоритмы сортировок](doc/Sort.MD)
 - [Хеширование & Хеш-мапа](doc/Hashing&HashMap.MD)
 - [Master Theorem](doc/MasterTheorem.MD)
-- [Обзор Java Collections Framework](doc/CollectionsFrameworkOverview.MD)
+- [Обзор Java Collections Framework](doc/collections/JavaCollectionsFrameworkOverview.MD)
 - [Динамическое/жадное программирование](doc/Dynamic&Greedy_Programming.MD)
