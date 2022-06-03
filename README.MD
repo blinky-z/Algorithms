@@ -27,7 +27,7 @@
   - [Дек](doc/collections/adt/Deque.MD)
 - Структуры данных:
   - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
-  - [Связный список](doc/collections/adt/LinkedList.MD)
+  - [Связный список](doc/collections/LinkedList.MD)
 - [Графы и деревья](doc/collections/Graphs&Trees.MD)
 - [Обзор Java Collections Framework](doc/collections/JavaCollectionsFrameworkOverview.MD)
 
