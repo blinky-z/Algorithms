@@ -20,8 +20,8 @@
 ### Структуры данных
 
 - Абстрактные типы данных:
-  - [Ассоциативный массив, мапа](doc/collections/Map.MD)
   - [Список](doc/collections/List.MD)
+  - [Ассоциативный массив, мапа](doc/collections/Map.MD)
   - [Стек](doc/collections/Stack.MD)
   - [Очередь](doc/collections/Queue.MD)
   - [Дек](doc/collections/Deque.MD)
