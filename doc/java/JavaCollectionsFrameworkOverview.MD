@@ -59,9 +59,7 @@
 
 ## Deque
 
-[Deque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html)
-
-Deque - это интерфейс, представляющий собой АТД «Дек (deque)». Deque может использоваться и как стек *LIFO (
+[Deque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html) - это интерфейс, представляющий собой АТД «Дек (deque)». Deque может использоваться и как стек *LIFO (
 Last-in-First-out)*, и как очередь *FIFO (First-in-First-out)*.
 
 Применение Deque:
