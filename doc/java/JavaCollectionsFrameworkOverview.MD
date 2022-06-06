@@ -12,7 +12,9 @@
 Классы, которые предназначены для использования в специфических случаях:
 
 - **Queue** - PriorityQueue, очередь с приоритетом. Построен на основе *Heap*
-- **Map** - TreeMap/TreeSet, представляют собой Sorted Map/Sorted Set. Построены на основе *BST*
+- **Map** - TreeMap/TreeSet, представляют собой Balanced Tree. Построены на основе *BST*
+
+Официальный обзор Java Collections Framework - [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/doc-files/coll-overview.html](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/doc-files/coll-overview.html).
 
 ---
 
@@ -20,32 +22,32 @@
 
 ## List
 
-[List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html) - это интерфейс, представляющий
+[[Interface] List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html) - это интерфейс, представляющий
 собой АТД «Список (List)» и предназначенный для хранения и обхода элементов в порядке вставки.
 
 ### Имплементации
 
-- ArrayList на основе массива
-- LinkedList на основе двусвязного списка
+- [ArrayList](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) на основе массива
+- [LinkedList](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) на основе двусвязного списка
 
 Из них нужно использовать ArrayList, так как она более эффективная в плане памяти и утилизации кеша. Однако, если
 требуется удалять элементы с начала или в середине списка, то лучше выбрать LinkedList, так как операция удаления в
-массиве требует времени O(n) против O(1) в двусвязном списке.
+массиве требует времени O(n) против O(1) в двусвязном списке, потому что в массиве нужно смещать (shift) элементы.
 
 ---
 
 ## Queue, Stack
 
-- [Queue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) - это интерфейс,
+- [[Interface] Queue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) - это интерфейс,
   представляющий собой АТД «Очередь (queue)», которая работает по принципу FIFO
-- [Stack](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html) - класс, имплементирующий
+- [[Class] Stack](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html) - класс, имплементирующий
   АТД «Стек (queue)». Да-да, это класс, а не интерфейс: в Java нет интерфейса под чистый стек. Более того, этот класс
   очень древний, неэффективный, и вообще не используется на практике
 
 ### Имплементации
 
 Есть одна прямая имплементация Queue:
-- PriorityQueue
+- [PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html), представляющая собой очередь с приоритетом. Построена на основе Heap
 
 Однако, PriorityQueue совершенно не подходит для использования в качестве классической очереди.
 
@@ -58,7 +60,7 @@
 
 ## Deque
 
-[Deque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html) - это интерфейс, представляющий собой АТД «Дек (deque)». Deque может использоваться и как стек *LIFO (
+[[Interface] Deque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html) - это интерфейс, представляющий собой АТД «Дек (deque)». Deque может использоваться и как стек *LIFO (
 Last-in-First-out)*, и как очередь *FIFO (First-in-First-out)*.
 
 ### Применение
@@ -67,8 +69,10 @@ Last-in-First-out)*, и как очередь *FIFO (First-in-First-out)*.
 
 ### Имплементации
 
-- [ArrayDeque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html)
-- [Linked List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html)
+- [ArrayDeque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html) - unbounded имплементация на основе массива
+- [Linked List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) - unbounded имплементация на основе двусвязного списка
+
+Обе имплементации unbounded, то есть умеют расширяться динамически.
 
 Из них нужно использовать *ArrayDeque*, потому что она наиболее эффективная в плане представления в памяти и утилизации
 кэша, так как построена на основе массива.
@@ -83,7 +87,7 @@ Last-in-First-out)*, и как очередь *FIFO (First-in-First-out)*.
 
 ## Map
 
-[Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html) - это интерфейс, представляющий
+[[Interface] Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html) - это интерфейс, представляющий
 собой АТД «Ассоциативный массив (Map)».
 
 Map позволяет хранить пары типа <ключ, значение>.
@@ -99,7 +103,7 @@ Map позволяет хранить пары типа <ключ, значен�
 
 ## Set
 
-[Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html) предназначен для хранения
+[[Interface] Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html) предназначен для хранения
 уникальных значений.
 
 ### Имплементации
@@ -115,7 +119,7 @@ Map позволяет хранить пары типа <ключ, значен�
 
 ## PriorityQueue
 
-[PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html) - это класс,
+[[Class] PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html) - это класс,
 который имплементирует АТД "Очередь с приоритетом" и построен на основе Heap. По-умолчанию в Java это min-heap (
 min-priority-queue), однако порядок можно изменить.
 
@@ -137,7 +141,7 @@ min-priority-queue), однако порядок можно изменить.
 
 ## TreeMap
 
-[TreeMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html) - это мапа с
+[[Class] TreeMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html) - это мапа с
 отсортированным порядком элементов (sorted map), которая построена на основе BST, а точнее Red-Black Tree.
 
 TreeMap сортирует элементы по *ключу*.
