@@ -29,7 +29,7 @@
   - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
   - [Связный список](doc/collections/LinkedList.MD)
 - [Графы и деревья](doc/collections/Graphs&Trees.MD)
-  - [Binary Heap](doc/collections/Graphs&Trees.MD#бинарная-куча-binary-heap.MD)
+  - [Binary Heap](doc/collections/Graphs&Trees.MD#бинарная-куча-binary-heap)
   - [Binary Search Tree](doc/collections/Graphs&Trees.MD#бинарное-дерево-поиска-bst)
 
 ### Java
