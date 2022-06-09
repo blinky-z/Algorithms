@@ -25,12 +25,9 @@
 - Репозиторий с имплементациями алгоритмов сортировки на Java - https://github.com/TheAlgorithms/Java/tree/master/src/main/java/com/thealgorithms/sorts
 - Сравнение производительности различных алгоритмов - https://habr.com/ru/post/335920/
 
-# Список и описание алгоритмов
+# Описание алгоритмов
 
-Далее рассмотрим все необходимые для понимания алгоритмы сортировки.
-
-Перед началом приведу цитату Дональда Кнутта:
-> It would be nice if only one or two of the sorting methods would dominate all of the others, regardless of application or the computer being used. But in fact, each method has its own peculiar virtues. [...] Thus we find that nearly all of the algorithms deserve to be remembered, since there are some applications in which they turn out to be best. — Donald Knuth, The Art Of Computer Programming, Volume 3
+> It would be nice if only one or two of the sorting methods would dominate all of the others, regardless of application or the computer being used. But in fact, each method has its own peculiar virtues. [...] Thus we find that nearly all of the algorithms deserve to be remembered, since there are some applications in which they turn out to be best. — Donald Knuth, The Art Of Computer Programming
 
 # Медленные сортировки - O(n^2)
 
