@@ -17,7 +17,7 @@
 
 # Сложность популярных алгоритмов
 
-<img src="../assets/img_18.png" alt="Sorting Algorithms Comparison" width="1811/2" height="1435/2">
+<img src="../assets/img_18.png" alt="Sorting Algorithms Comparison" width="905" height="717">
 
 # Полезные ссылки
 
