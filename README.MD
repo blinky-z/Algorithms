@@ -30,6 +30,9 @@
 - [Графы и деревья](doc/collections/Graphs&Trees.MD)
   - [Binary Heap](doc/collections/Graphs&Trees.MD#бинарная-куча-binary-heap)
   - [Binary Search Tree](doc/collections/Graphs&Trees.MD#бинарное-дерево-поиска-bst)
+
+#### Thread-Safe структуры данных
+
 - [Non-Blocking Lock-free Queue](doc/collections/concurrent/LockFreeQueue.MD)
 
 ### Java
