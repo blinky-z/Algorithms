@@ -1,8 +1,8 @@
 package me.progbloom.task;
 
-import me.progbloom.datastruct.stack.Stack;
-import me.progbloom.datastruct.queue.ArrayQueue;
-import me.progbloom.datastruct.queue.Queue;
+import me.progbloom.collection.stack.Stack;
+import me.progbloom.collection.queue.ArrayQueue;
+import me.progbloom.collection.queue.Queue;
 
 /**
  * Имплементация стека с помощью двух очередей.

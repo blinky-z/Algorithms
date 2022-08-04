@@ -1,6 +1,6 @@
 package me.progbloom.task;
 
-import me.progbloom.datastruct.linkedlist.SinglyLinkedList.Node;
+import java.util.Objects;
 
 /**
  * Разворот связного списка.
@@ -27,5 +27,22 @@ public class ReverseLinkedList {
             current = nextElement;
         }
         return previous;
+    }
+
+    public static class Node<E> {
+        public final E value;
+        public Node<E> next;
+
+        public Node(E value) {
+            this.value = Objects.requireNonNull(value, "Value must not be null!");
+            next = null;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                "value=" + value +
+                '}';
+        }
     }
 }

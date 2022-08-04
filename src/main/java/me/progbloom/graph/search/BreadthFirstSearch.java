@@ -1,7 +1,7 @@
 package me.progbloom.graph.search;
 
-import me.progbloom.datastruct.queue.LinkedListQueue;
-import me.progbloom.datastruct.queue.Queue;
+import me.progbloom.collection.queue.LinkedListQueue;
+import me.progbloom.collection.queue.Queue;
 import me.progbloom.graph.Graph;
 
 /**

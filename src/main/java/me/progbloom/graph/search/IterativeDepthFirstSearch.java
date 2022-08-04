@@ -1,7 +1,7 @@
 package me.progbloom.graph.search;
 
-import me.progbloom.datastruct.stack.ArrayStack;
-import me.progbloom.datastruct.stack.Stack;
+import me.progbloom.collection.stack.ArrayStack;
+import me.progbloom.collection.stack.Stack;
 import me.progbloom.graph.Graph;
 
 /**
