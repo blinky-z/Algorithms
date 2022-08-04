@@ -295,11 +295,11 @@ algorithm partition(A, low, high) is
 
 Изображение работы алгоритма:
 
-![img.png](../assets/img_15.png)
+![img.png](../assets/merge-sort-example-animation.png)
 
 Анимация работы алгоритма:
 
-![](../assets/merge-sort-example.gif)
+![](../assets/merge-sort-example-animation.gif)
 
 То есть, идея заключается в том, чтобы собирать уже отсортированные подмассивы в один отсортированный. А начинаем мы
 собирать только тогда, когда дошли до последнего уровня рекурсии, т.е. базового случая - подмассива длины 1, который
