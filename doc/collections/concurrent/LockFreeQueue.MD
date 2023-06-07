@@ -1,6 +1,6 @@
 # Lock-Free Queue (Michael-Scott Queue)
 
-Здесь мы разберем lock-free очередь Майкла-Скотта. Для понимания этой статьи потребуется понимание [compare-and-swap (CAS)](https://en.wikipedia.org/wiki/Compare-and-swap) операции.
+Здесь мы разберем lock-free очередь Майкла-Скотта. Для понимания этой статьи вам необходимо знание [compare-and-swap (CAS)](https://en.wikipedia.org/wiki/Compare-and-swap) операции.
 
 **Содержание:**
 - [Add Operation: Introduction](#add-operation-introduction)
