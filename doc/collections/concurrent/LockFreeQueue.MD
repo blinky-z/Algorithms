@@ -2,6 +2,14 @@
 
 Здесь мы разберем lock-free очередь Майкла-Скотта. Для понимания этой статьи потребуется понимание [compare-and-swap (CAS)](https://en.wikipedia.org/wiki/Compare-and-swap) операции.
 
+**Содержание:**
+- [Add Operation: Introduction](#add-operation-introduction)
+- [Add Operation: Non-Blocking](#add-operation-non-blocking)
+- [Add Operation: Lock-free](#add-operation-lock-free)
+- [Полезные ресурсы](#полезные-ресурсы)
+
+---
+
 ## Add Operation: Introduction
 
 Операция добавления работает в 2 шага:
@@ -9,6 +17,7 @@
 2. Сдвигание tail, т.е. обновление ссылки tail на tail.next.
 
 Давайте для начала имплементируем блокирующую операцию добавления:
+
 ```java
 @ThreadSafe
 public class BlockingQueue<E> implements ConcurrentQueue<E> {
@@ -44,6 +53,7 @@ public class BlockingQueue<E> implements ConcurrentQueue<E> {
 Теперь давайте имплементируем неблокирующую операцию добавления.
 
 Это будет выглядеть так:
+
 ```java
 @ThreadSafe
 public class NonBlockingConcurrentQueue<E> implements ConcurrentQueue<E> {
@@ -60,7 +70,7 @@ public class NonBlockingConcurrentQueue<E> implements ConcurrentQueue<E> {
         // дальше этого CAS-цикла пройдет только один тред, а остальные зависнут, так как `tail.next` всегда будет не null, пока не сдвинем tail вперед
         while (true) {
             // необходимо каждый раз обновлять curTail, чтобы эта операция eventually прошла успешно
-            // так как мы ждем, пока пишующий тред сдвинет tail вперед
+            // так как мы ждем, пока пишущий тред сдвинет tail вперед
             final Node<E> curTail = tail.get();
             if (curTail.next.compareAndSet(null, newNode)) {
                 break;
@@ -99,6 +109,7 @@ public class NonBlockingConcurrentQueue<E> implements ConcurrentQueue<E> {
 ## Add Operation: Lock-free
 
 Теперь имплементируем lock-free операцию добавления:
+
 ```java
 @ThreadSafe
 public class MichaelScottLockFreeConcurrentQueue<E> implements ConcurrentQueue<E> {
@@ -116,7 +127,7 @@ public class MichaelScottLockFreeConcurrentQueue<E> implements ConcurrentQueue<E
             // добавляем новый элемент в конец очереди (устанавливаем tail.next)
             // этот if выполнится успешно только в одном из тредов
             if (curTail.next.compareAndSet(null, newNode)) {
-                // если успещно добавили новый элемент, сдвигаем tail вперед
+                // если успешно добавили новый элемент, сдвигаем tail вперед
                 //
                 // не важен результат cas
                 // так как гарантированно пройдет или этот сдвиг A в этом же треде, или B сдвиг в другом треде
@@ -152,7 +163,7 @@ public class MichaelScottLockFreeConcurrentQueue<E> implements ConcurrentQueue<E
 
 ---
 
-## Ресурсы
+## Полезные ресурсы
 
 - [Очередь Майкла и Скотта](https://neerc.ifmo.ru/wiki/index.php?title=%D0%9E%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C_%D0%9C%D0%B0%D0%B9%D0%BA%D0%BB%D0%B0_%D0%B8_%D0%A1%D0%BA%D0%BE%D1%82%D1%82%D0%B0)
 - Paper [Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms](https://www.cs.rochester.edu/~scott/papers/1996_PODC_queues.pdf) от собственно самих Майкла (Maged M. Michael) и Скотта (Michael L. Scott)

@@ -4,6 +4,13 @@
 
 Стандарт Java не указывает, какой должна быть организация памяти объектов, поэтому мы рассмотрим эти аспекты на примере open-source HotSpot JVM.
 
+**Содержание:**
+- [Java Object](#java-object)
+- [Анализ размера объектов](#анализ-размера-объектов)
+    - [Анализ массива объектов](#анализ-массива-объектов)
+
+---
+
 ## Java Object
 
 Структура, описывающая Java Object, который неявно является родительским классом для всех объектов в Java, состоит из *Mark Word* и *Klass Word*.
@@ -211,7 +218,7 @@ typedef julong  u8;
 
 Давайте проверим это на практике. Для этого мы заиспользуем утилиту [JOL (Java Object Layout)](https://github.com/openjdk/jol), позволяющую показать организацию любого Java класса в памяти, с учетом padding и align. Посмотрим на базовый класс `java.lang.Object`:
 
-```bash
+```text
 $ java -XX:+UseCompressedOops -jar jol-cli.jar internals java.lang.Object
 # Running 64-bit HotSpot VM.
 # Using compressed oop with 3-bit shift.
@@ -232,9 +239,9 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 4 bytes external = 4 bytes total
 ```
 
-Итак, мы видим, что на 64-битной системе хэдер занимает 12 байт (8 байт markWord + 4 байта сжатый Klass pointer), но для align под машинное слово JVM добавляет 4 байта, в итоге получая размер в 16 байт. Мы можем подумать, что сжатие Klass Pointer было быссмысленным, ведь мы бы в любом случае получили 16 байт, однако стоит учитывать, что это только базовый класс Object. Для инстанса `Integer`, который наследует Object, мы получаем свободное пространство для размещения числового значения:
+Итак, мы видим, что на 64-битной системе хэдер занимает 12 байт (8 байт markWord + 4 байта сжатый Klass pointer), но для align под машинное слово JVM добавляет 4 байта, в итоге получая размер в 16 байт. Мы можем подумать, что сжатие Klass Pointer было бессмысленным, ведь мы бы в любом случае получили 16 байт, однако стоит учитывать, что это только базовый класс Object. Для инстанса `Integer`, который наследует Object, мы получаем свободное пространство для размещения числового значения:
 
-```bash
+```text
  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
       0     4        (object header)                           05 00 00 00 (00000101 00000000 00000000 00000000) (5)
       4     4        (object header)                           00 00 00 00 (00000000 00000000 00000000 00000000) (0)
@@ -248,7 +255,7 @@ Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
 
 Давайте теперь проанализируем стоимость массива объектов. Мы помним, что в его структуре добавляется 4 байта для хранения длины массива. Давайте же посмотрим на организацию памяти массива объектов:
 
-```bash
+```text
 $ java -XX:+UseCompressedOops -jar jol-cli.jar internals [I
 [I object internals:
  OFFSET  SIZE   TYPE DESCRIPTION                               VALUE
@@ -258,4 +265,4 @@ Instance size: 16 bytes
 Space losses: 0 bytes internal + 0 bytes external = 0 bytes total
 ```
 
-**[I** - это массив объектов типа Integer. Как мы видим, хэдер занял 16 байт - 8 байт markWord + 4 байта Klass Pointer + 4 байта длина массива -, как и ожидалось.
+**\[I** - это массив объектов типа Integer. Как мы видим, хэдер занял 16 байт - 8 байт markWord + 4 байта Klass Pointer + 4 байта длина массива -, как и ожидалось.

@@ -1,5 +1,28 @@
 # Обзор структур данных из Java Collections Framework
 
+**Содержание:**
+- [Краткий обзор структур данных в Java](#краткий-обзор-структур-данных-в-java)
+- [Интерфейсы и их имплементации](#интерфейсы-и-их-имплементации)
+    - [List](#list)
+        - [Имплементации](#имплементации)
+    - [Queue, Stack](#queue-stack)
+        - [Имплементации](#имплементации-1)
+    - [Deque](#deque)
+        - [Применение](#применение)
+        - [Имплементации](#имплементации-2)
+        - [Полезные методы](#полезные-методы)
+    - [Map](#map)
+        - [Имплементации](#имплементации-3)
+    - [Set](#set)
+        - [Имплементации](#имплементации-4)
+- [Классы](#классы)
+    - [PriorityQueue](#priorityqueue)
+    - [TreeMap](#treemap)
+        - [Применение](#применение-1)
+        - [Полезные методы](#полезные-методы-1)
+
+---
+
 ## Краткий обзор структур данных в Java
 
 Классы, предназначенные для использования в общих случаях:
@@ -23,14 +46,14 @@
 
 ---
 
-# Интерфейсы и их имплементации
+## Интерфейсы и их имплементации
 
-## List
+### List
 
-[[Interface] List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html) - это интерфейс, представляющий
+[[Interface] List](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html>) - это интерфейс, представляющий
 собой АТД «Список (List)» и предназначенный для хранения и обхода элементов в порядке вставки.
 
-### Имплементации
+#### Имплементации
 
 - [ArrayList](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayList.html) на основе массива
 - [LinkedList](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) на основе двусвязного списка
@@ -41,15 +64,15 @@
 
 ---
 
-## Queue, Stack
+### Queue, Stack
 
-- [[Interface] Queue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html) - это интерфейс,
+- [[Interface] Queue](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Queue.html>) - это интерфейс,
   представляющий собой АТД «Очередь (queue)», которая работает по принципу FIFO
-- [[Class] Stack](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html) - класс, имплементирующий
+- [[Class] Stack](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Stack.html>) - класс, имплементирующий
   АТД «Стек (queue)». Да-да, это класс, а не интерфейс: в Java нет интерфейса под чистый стек. Более того, этот класс
   очень древний, неэффективный, и вообще не используется на практике
 
-### Имплементации
+#### Имплементации
 
 Есть одна прямая имплементация Queue:
 - [PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html), представляющая собой очередь с приоритетом. Построена на основе Heap
@@ -60,22 +83,22 @@
 
 ---
 
-## Deque
+### Deque
 
-[[Interface] Deque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html) - это интерфейс, представляющий собой АТД «Дек (deque)», который может использоваться как в виде *LIFO (Last-in-First-out)*, так и *FIFO (First-in-First-out)* коллекции.
+[[Interface] Deque](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Deque.html>) - это интерфейс, представляющий собой АТД «Дек (deque)», который может использоваться как в виде *LIFO (Last-in-First-out)*, так и *FIFO (First-in-First-out)* коллекции.
 
-### Применение
+#### Применение
 
 - Если нужна LIFO (Stack) или FIFO (Queue) коллекция
 
-### Имплементации
+#### Имплементации
 
 - [ArrayDeque](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/ArrayDeque.html) - unbounded имплементация на основе массива
 - [Linked List](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html) - unbounded имплементация на основе двусвязного списка
 
 Обе имплементации unbounded, то есть умеют расширяться динамически. Из них нужно использовать *ArrayDeque*, потому что она наиболее эффективная в плане представления в памяти и утилизации кэша, так как построена на основе массива.
 
-### Полезные методы
+#### Полезные методы
 
 - addFirst, addList - добавить элемент в начало или конец дека соответственно
 - peekFirst, pollFirst - если нужно посмотреть или посмотреть и удалить элемент в начале дека соответственно
@@ -83,11 +106,11 @@
 
 ---
 
-## Map
+### Map
 
-[[Interface] Map](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html) - это интерфейс, представляющий собой АТД «Ассоциативный массив (Словарь, Map)». Мапа позволяет хранить пары типа <ключ, значение>.
+[[Interface] Map](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Map.html>) - это интерфейс, представляющий собой АТД «Ассоциативный массив (Словарь, Map)». Мапа позволяет хранить пары типа <ключ, значение>.
 
-### Имплементации
+#### Имплементации
 
 - [HashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashMap.html) на основе хеширования
 - [LinkedHashMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashMap.html), которая наследует HashMap с той разницей, что упорядочивает элементы в порядке их вставки путем поддержания двусвязного списка между элементами
@@ -95,11 +118,11 @@
 
 ---
 
-## Set
+### Set
 
-[[Interface] Set](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html) предназначен для хранения уникальных значений в порядке вставки элементов.
+[[Interface] Set](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Set.html>) предназначен для хранения уникальных значений в порядке вставки элементов.
 
-### Имплементации
+#### Имплементации
 
 - [HashSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html), который построен на основе HashMap и оперирует только ее ключами
 - [LinkedHashSet](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedHashSet.html), который наследует HashSet с той разницей, что упорядочивает элементы в порядке их вставки. Таким же образом, под капотом лежит LinkedHashMap
@@ -109,11 +132,11 @@
 
 ---
 
-# Классы
+## Классы
 
-## PriorityQueue
+### PriorityQueue
 
-[[Class] PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html) - это класс, который имплементирует АТД "Очередь с приоритетом" и построен на основе Binary Heap.
+[[Class] PriorityQueue](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html>) - это класс, который имплементирует АТД "Очередь с приоритетом" и построен на основе Binary Heap.
 
 По-умолчанию используется natural ordering comparator, то есть очередь поддерживает самый минимальный элемент в корне - min-priority-queue (min-heap), — однако порядок можно изменить.
 
@@ -126,27 +149,27 @@
 Как я уже сказал, по-умолчанию PriorityQueue поддерживает в корне наименьший элемент, но можно поддерживать и наибольший вот так:
 
 ```java
-    PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.<Integer>naturalOrder().reversed());
+PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.<Integer>naturalOrder().reversed());
 ```
 
 ---
 
-## TreeMap
+### TreeMap
 
-[[Class] TreeMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html) - это мапа с отсортированным порядком элементов (sorted map), которая построена на основе Red-Black Tree. RB Tree является одним из видов самобалансирующихся деревьев поиска (self-balancing bst).
+[[Class] TreeMap](<https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html>) - это мапа с отсортированным порядком элементов (sorted map), которая построена на основе Red-Black Tree. RB Tree является одним из видов самобалансирующихся деревьев поиска (self-balancing bst).
 
 TreeMap сортирует элементы по *ключу*.
 
-### Применение
+#### Применение
 
 - Поддерживать отсортированный порядок элементов и обходить их в этом порядке
 - Эффективно находить наследника (successor) или преемника (predecessor) указанного ключа
 
-### Полезные методы
+#### Полезные методы
 
-- lowerEntry(K), floorEntry(K), ceilingEntry(K) и higherEntry(K) - возвращают соответственно меньший, меньший или
+- `lowerEntry(K)`, `floorEntry(K)`, `ceilingEntry(K)` и `higherEntry(K)` - возвращают соответственно меньший, меньший или
   равный, больший или равный, и больший элемент чем указанный ключ
-- subMap(K, boolean, K, boolean) - возвращают сабсет мапы между low и high границей. Boolean параметры указывают,
+- `subMap(K, boolean, K, boolean)` - возвращают сабсет мапы между low и high границей. Boolean параметры указывают,
   inclusive или exclusive границы
-- headMap(K, boolean) и tailMap(K, boolean) - возвращают сабсет мапы с ключами, соответственно меньшими или большими чем
+- `headMap(K, boolean)` и `tailMap(K, boolean)` - возвращают сабсет мапы с ключами, соответственно меньшими или большими чем
   указанный. Boolean параметры указывают, inclusive или exclusive граница

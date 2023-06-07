@@ -19,17 +19,17 @@
 ### Структуры данных
 
 - Абстрактные типы данных:
-  - [Список](doc/collections/adt/List.MD)
-  - [Ассоциативный массив, мапа](doc/collections/adt/Map.MD)
-  - [Стек](doc/collections/adt/Stack.MD)
-  - [Очередь](doc/collections/adt/Queue.MD)
-  - [Дек](doc/collections/adt/Deque.MD)
+    - [Список](doc/collections/adt/List.MD)
+    - [Ассоциативный массив, мапа](doc/collections/adt/Map.MD)
+    - [Стек](doc/collections/adt/Stack.MD)
+    - [Очередь](doc/collections/adt/Queue.MD)
+    - [Дек](doc/collections/adt/Deque.MD)
 - Структуры данных:
-  - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
-  - [Связный список](doc/collections/LinkedList.MD)
+    - [Хеширование & Хеш-мапа](doc/collections/HashMap.MD)
+    - [Связный список](doc/collections/LinkedList.MD)
 - [Графы и деревья](doc/collections/Graphs&Trees.MD)
-  - [Binary Heap](doc/collections/Graphs&Trees.MD#бинарная-куча-binary-heap)
-  - [Binary Search Tree](doc/collections/Graphs&Trees.MD#бинарное-дерево-поиска-bst)
+    - [Binary Heap](doc/collections/Graphs&Trees.MD#бинарная-куча-binary-heap)
+    - [Binary Search Tree](doc/collections/Graphs&Trees.MD#бинарное-дерево-поиска-bst)
 
 #### Thread-Safe структуры данных
 
