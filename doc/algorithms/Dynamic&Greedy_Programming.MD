@@ -52,7 +52,7 @@ Greedy Programming способ решения алгоритмов похож �
 
 ### \[Dynamic Programming\] Longest Common Subsequence
 
-Проблема *Longest Common Subsequence (LCS)* - это классический пример DP.
+Проблема *[Longest Common Subsequence (LCS)](https://en.wikipedia.org/wiki/Longest_common_subsequence)* - это классический пример DP.
 
 Вот решение проблемы на Java с пояснениями:
 
