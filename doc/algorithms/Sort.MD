@@ -222,7 +222,7 @@ Insertion и Selection Sort действительно похожи, но все
 
 ![](../assets/quick_sort_example.jpg)
 
-Вот псевдокод алгоритма:
+Псевдокод алгоритма:
 
 ```text
 algorithm quicksort(A, low, high) is
