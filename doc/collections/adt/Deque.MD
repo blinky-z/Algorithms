@@ -59,7 +59,7 @@
         arr[head] = e;
         this.head = nextHead(head);
     }
-    
+
     private int nextHead(int head) {
         if (head == arraySize - 1) {
             return 0;
@@ -105,7 +105,7 @@
         arr[tail] = e;
         this.tail = tail;
     }
-   
+
     private int nextTail(int tail) {
         if (tail == 0) {
             return arraySize - 1;

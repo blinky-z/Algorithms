@@ -186,8 +186,8 @@ public class SinglyLinkedList<E> {
   <summary>Имплементация двусвязного списка</summary>
 
 ```java
-public class DoublyLinkedList<E> { 
-    
+public class DoublyLinkedList<E> {
+
     private Node<E> head;
     private Node<E> tail;
     private int size;
