@@ -17,12 +17,12 @@
 
 ***Mark word*** - это структура, которая выступает в роли хэдеров объекта. JVM хранит здесь:
 
-- *Identity Hash Code* - кэш-код, возвращаемый методом [System.identityHashCode(Object x)](https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#identityHashCode-java.lang.Object-) или дефолтным методом [hashCode()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--) объекта, если не был переопределен.
+- *Identity Hash Code* - кэш-код, возвращаемый методом [System.identityHashCode(Object x)](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/System.html#identityHashCode(java.lang.Object)) или дефолтным методом [hashCode()](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()) объекта, если не был переопределен.
 - *Biased lock pattern* - требуется для реализации Biased Locking, т.е. чтобы привязать (bias) лок к треду.
 - *Лок* - каждый объект в Java может быть использован в качестве монитора (intrinsic lock), и реализовано это путем хранения лока в хэдере объекта
 - *Метаданные для GC* - время жизни объекта, а точнее, счетчик пережитых сборок мусора. После определенного значения пережитых сборок объект перемещается в Old Generation.
 
-***Klass Word*** - это *указатель* на область памяти в Metaspace, где хранится информация о классе: имя класса, его поля, информация о родительском классе и так далее. Другими словами, это `java.lang.Class`, который мы можем получить вызовом [getClass()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#getClass--) на объекте.
+***Klass Word*** - это *указатель* на область памяти в Metaspace, где хранится информация о классе: имя класса, его поля, информация о родительском классе и так далее. Другими словами, это `java.lang.Class`, который мы можем получить вызовом [getClass()](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()) на объекте.
 
 Все это мы можем подсмотреть из исходников HotSpot JVM, находящихся в свободном доступе на [GitHub](https://github.com/openjdk/jdk15/tree/e208d9aa1f185c11734a07db399bab0be77ef15f/src/hotspot). Базовая структура Java объекта описана в файле [hotspot/share/oops/oop.hpp](https://github.com/openjdk/jdk15/blob/e208d9aa1f185c11734a07db399bab0be77ef15f/src/hotspot/share/oops/oop.hpp):
 

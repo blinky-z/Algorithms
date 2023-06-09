@@ -46,7 +46,7 @@ Garbage Collector также чистит и String Pool, поэтому те с
 
 ## Метод intern()
 
-Получить intern строки, а также интернировать строку мы можем с помощью вызова метода [intern()](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#intern--). Данный метод проверяет, не содержится ли в String Pool уже такая строка, и возвращает её, а если не содержится, то создает её и кладет в String Pool и только затем возвращает.
+Получить intern строки, а также интернировать строку мы можем с помощью вызова метода [intern()](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html#intern()). Данный метод проверяет, не содержится ли в String Pool уже такая строка, и возвращает её, а если не содержится, то создает её и кладет в String Pool и только затем возвращает.
 
 Вызов intern() для literal строки не будет иметь эффекта и вернет тот же самый объект, однако с помощью этого метода мы можем вручную интернировать строки, созданные с помощью вызова `new`.
 
@@ -75,7 +75,7 @@ Garbage Collector также чистит и String Pool, поэтому те с
 
 Итак, мы изучили, что такое интернирование строк в Java. Следует заметить, что в Java интернируются не только строки, но и Boxed типы для следующих примитивов:
 
-- boolean: смотрите константы `Boolean.TRUE` и `Boolean.FALSE` - [Boolean](https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html#TRUE))
+- boolean: смотрите константы `Boolean.TRUE` и `Boolean.FALSE` - [Boolean](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html#TRUE)
 - byte: cм. класс `ByteCache` в классе Byte
 - char: гарантированно стандартом для значений от 0 до 127 (см. класс `CharacterCache` в классе Character)
 - short и int: гарантированно стандартом для значений от -128 до 127 (см. классы `ShortCache` в классе Short и `IntegerCache` в Integer)
