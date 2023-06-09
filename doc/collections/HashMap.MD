@@ -46,7 +46,7 @@ array).
 
 $\textrm{hash} = \textit{hashfunc}(key)$
 
-$\textrm{index} = \textrm{hash} \bmod \textrm{array\_size}$
+$\textrm{index} = \textrm{hash} \bmod \textrm{array\textunderscore size}$
 
 Последнее выражение, взятие хеша по модулю размера массива, требуется потому, что хеш функция может выдать значение за
 пределами массива. Такое значение замапить невозможно, если только не выделить массив такого размера, что он покрыл бы
