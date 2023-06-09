@@ -559,7 +559,7 @@ BST позволяют сделать операции поиска, добав�
 
 ### Java Collections
 
-- В Java BST представлено в виде [TreeMap](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeMap.html), где используется Red-Black Tree
+- В Java BST представлено в виде [TreeMap](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/TreeMap.html), где используется Red-Black Tree
 
 ---
 
@@ -780,7 +780,7 @@ $$(h * \frac{n}{2}) + ((h-1) * \frac{n}{4}) + ((h-2) * \frac{n}{8}) + ... + (0 *
 
 ### Java Collections
 
-- В Java структура данных "Очередь с приоритетом" построена на основе бинарной кучи - [PriorityQueue](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/PriorityQueue.html)
+- В Java структура данных "Очередь с приоритетом" построена на основе бинарной кучи - [PriorityQueue](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/PriorityQueue.html)
 
 ### Пирамидальная сортировка (Heap Sort)
 
