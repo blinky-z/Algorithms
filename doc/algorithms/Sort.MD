@@ -1,11 +1,12 @@
 # Алгоритмы сортировок
 
+> *It would be nice if only one or two of the sorting methods would dominate all of the others, regardless of application or the computer being used. But in fact, each method has its own peculiar virtues. Thus we find that nearly all of the algorithms deserve to be remembered, since there are some applications in which they turn out to be best.* — Donald Knuth, The Art Of Computer Programming
+
 **Содержание:**
 - [Виды алгоритмов](#виды-алгоритмов)
 - [Visualizers](#visualizers)
 - [Сложность популярных алгоритмов](#сложность-популярных-алгоритмов)
 - [Полезные ссылки](#полезные-ссылки)
-- [Описание алгоритмов](#описание-алгоритмов)
 - [Медленные сортировки - O(n^2)](#медленные-сортировки---on2)
     - [Сортировка пузырьком (Bubble sort)](#сортировка-пузырьком-bubble-sort)
         - [Характеристики](#характеристики)
@@ -72,10 +73,6 @@
 - [Wiki: Алгоритм сортировки](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8)
 - Репозиторий с имплементациями алгоритмов сортировки на Java - <https://github.com/TheAlgorithms/Java/tree/master/src/main/java/com/thealgorithms/sorts>
 - Сравнение производительности различных алгоритмов - <https://habr.com/ru/post/335920/>
-
-## Описание алгоритмов
-
-> It would be nice if only one or two of the sorting methods would dominate all of the others, regardless of application or the computer being used. But in fact, each method has its own peculiar virtues. [...] Thus we find that nearly all of the algorithms deserve to be remembered, since there are some applications in which they turn out to be best. — Donald Knuth, The Art Of Computer Programming
 
 ---
 
