@@ -18,6 +18,10 @@ public class BreadthFirstSearch {
 
     private void bfs(Graph G, int root) {
         Queue<Integer> q = new LinkedListQueue<>();
+        // we need to mark nodes as visited when:
+        // 1. graph may contain cycles
+        // 2. graph is undirected
+        // otherwise it's not necessary
         marked[root] = true;
         q.add(root);
         while (!q.isEmpty()) {

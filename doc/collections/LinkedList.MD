@@ -51,7 +51,7 @@
         Node<E> next;
 
         Node(E data) {
-            this.data = Objects.requireNonNull(data, Data must not be null!);
+            this.data = Objects.requireNonNull(data, "Data must not be null!");
             next = null;
         }
 
